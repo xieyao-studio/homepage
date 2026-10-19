@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>商务合作 | 通俗解释</title>
-  <meta name="description" content="让好产品，被真正听懂。通俗解释商业合作与定制内容。">
+  <meta name="description" content="通俗解释的商业内容合作方式与联络信息。">
   <style>
     :root {
       --bg: #F2F0E9;
@@ -12,11 +12,9 @@
       --card-inner: #FFFFFF;
       --ink: #1A1C18;
       --ink-muted: #55594F;
-      --ink-light: #7E8277;
-      --line: rgba(26, 28, 24, 0.18);
-      --line-strong: rgba(26, 28, 24, 0.4);
+      --ink-light: #6A6E63;
+      --line: rgba(26, 28, 24, 0.15);
       --accent: #E68A00;
-      --accent-soft: rgba(230, 138, 0, 0.12);
       --max-w: 740px;
     }
 
@@ -45,58 +43,12 @@
       overflow: visible;
     }
 
-    /* Header & Nav */
-    header.page-header {
-      margin-bottom: 32px;
-    }
-
-    nav.back-nav {
-      margin-bottom: 24px;
-    }
-
-    nav.back-nav a {
-      color: var(--ink-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      border-bottom: 1px dotted var(--ink-muted);
-      padding-bottom: 2px;
-    }
-
-    nav.back-nav a:hover {
-      color: var(--ink);
-      border-bottom-color: var(--ink);
-    }
-
-    .kicker {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-
-    .lead {
-      font-size: 1.15rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
-    /* Sketch Card Base (Strictly level, SVG handles both fill and stroke) */
+    /* Sketch Card Base */
     .sketch-card {
       position: relative;
       background: transparent;
+      border-radius: 4px;
       box-shadow: none;
-      border: none;
       transition: transform 0.2s ease;
     }
 
@@ -105,8 +57,10 @@
       z-index: 1;
     }
 
-    .sketch-card:hover {
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      a.sketch-card:hover {
+        transform: translateY(-2px);
+      }
     }
 
     .sketch-svg {
@@ -119,70 +73,157 @@
       overflow: visible;
     }
 
-    /* Problem statement callout */
+    /* Header & Nav */
+    header.site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 36px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border: 1.8px solid var(--ink);
+      border-radius: 48% 52% 46% 54% / 53% 47% 55% 45%;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #F2F0E9;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    nav.site-nav {
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav.site-nav a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    nav.site-nav a:hover {
+      color: var(--ink);
+    }
+
+    nav.site-nav a.active {
+      color: var(--ink);
+      font-weight: 700;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 2px;
+    }
+
+    /* Page Intro */
+    .kicker {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1.page-title {
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* Problem Card */
     .problem-card {
-      padding: 28px 32px;
-      margin-bottom: 36px;
+      padding: 32px;
+      margin-bottom: 32px;
     }
 
     .problem-card h2 {
       font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 12px;
-      line-height: 1.4;
+      color: var(--ink);
     }
 
     .problem-card p {
-      font-size: 1rem;
       color: var(--ink-muted);
-      line-height: 1.75;
+      font-size: 0.95rem;
+      line-height: 1.8;
       margin-bottom: 16px;
     }
 
     .problem-points {
       list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 16px;
+      gap: 12px;
     }
 
     .problem-points li {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
       display: flex;
-      gap: 10px;
-    }
-
-    .problem-points li b {
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    /* Core promise */
-    .promise-card {
-      padding: 24px 28px;
-      margin-bottom: 40px;
-    }
-
-    .promise-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
-
-    .promise-card p {
+      gap: 12px;
       font-size: 0.95rem;
       color: var(--ink-muted);
       line-height: 1.7;
     }
 
-    /* Process steps */
+    .problem-points li b {
+      color: var(--ink);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* Promise Card */
+    .promise-card {
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .promise-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .promise-card p {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* Process Grid */
     .section-title {
       font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      color: var(--ink);
+      margin: 40px 0 20px;
+      letter-spacing: 0;
     }
 
     .process-grid {
@@ -202,39 +243,44 @@
 
     .process-card b {
       font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 800;
+      color: var(--ink-light);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
     }
 
     .process-card h4 {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      color: var(--ink);
     }
 
     .process-card p {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--ink-muted);
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 0;
     }
 
-    /* Contact box */
+    /* Contact Box */
     .contact-box {
-      padding: 32px;
+      padding: 36px 32px;
+      margin-bottom: 40px;
     }
 
     .contact-box h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 18px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--ink);
     }
 
     .contact-row {
       display: flex;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 1rem;
     }
 
     .contact-row:last-child { margin-bottom: 0; }
@@ -243,11 +289,16 @@
       width: 100px;
       color: var(--ink-light);
       font-weight: 500;
+      flex-shrink: 0;
     }
 
     .contact-val {
       color: var(--ink);
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .contact-val a {
@@ -255,32 +306,69 @@
       text-decoration: underline;
     }
 
+    /* Copy Button */
+    .copy-btn {
+      appearance: none;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.82rem;
+      color: var(--ink);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: #E5E2D6;
+      border-color: var(--ink);
+    }
+
+    .copy-btn.copied {
+      background: #E6F4EA;
+      color: #137333;
+      border-color: #34A853;
+    }
+
     /* Footer */
-    footer {
+    footer.site-footer {
       margin-top: 16px;
       padding-top: 0;
       border-top: none;
       font-size: 0.85rem;
       color: var(--ink-light);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="page-header">
-      <nav class="back-nav">
-        <a href="index.html">← 首页</a>
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">俗</span>
+        <span>通俗解释</span>
+      </a>
+      <nav class="site-nav">
         <a href="cases.html">案例</a>
         <a href="method.html">方法</a>
+        <a href="cooperate.html" class="active">商务合作</a>
       </nav>
-      <span class="kicker">商业合作与咨询</span>
-      <h1>让好产品，被真正听懂。</h1>
-      <p class="lead">
-        很多企业的问题不是产品不好，而是普通人无法迅速理解：它为什么重要，又与自己有什么关系。
-      </p>
     </header>
 
     <main>
+      <div class="page-intro">
+        <span class="kicker">商业合作与咨询</span>
+        <h1 class="page-title">让好产品，被真正听懂。</h1>
+        <p class="lead">
+          很多企业的问题不是产品不好，而是普通人无法迅速理解：它为什么重要，又与自己有什么关系。
+        </p>
+      </div>
+
       <div class="problem-card sketch-card">
         <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d="M 0.4,2 C 30,1 70,2.8 99.55,1.8 C 99.8,32 99.3,68 99.55,98 C 68,98.8 30,97.2 0.4,98.2 C 0.2,68 0.6,32 0.4,2 Z" fill="#FAF9F5" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
@@ -298,15 +386,15 @@
 
       <div class="promise-card sketch-card">
         <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M 0.4,1.8 C 32,2.6 68,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" fill="#FAF9F5" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          <path d="M 1.5,1.8 C 25,1.5 50,2.2 75,1.7 C 88,2.1 95,1.6 98.4,1.8 C 98.1,25 98.5,50 98.2,75 C 98.5,88 98.1,95 98.3,98.2 C 75,98.5 50,97.8 25,98.3 C 12,97.9 5,98.4 1.6,98.1 C 1.9,75 1.5,50 1.8,25 C 1.4,12 1.9,5 1.5,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
         </svg>
-        <h3>不是拿到资料就开写，我们会先帮你把这件事想明白。</h3>
+        <h3>我们提供的是「理解的转译」，而不是文案代写。</h3>
         <p>
-          正式创作前，我们会听你介绍产品，阅读必要的技术与行业资料，站在普通人的真实认知起点上找出最难理解的地方，再一起确认先讲什么、怎么讲，以及用什么生活经验和比喻更容易推通。这项深度消化工作包含在每次内容合作中。
+          我们不会把甲方的宣传口径原样复述，而是退回到大众真实的常识与疑虑起点，为你的技术重构一个逻辑严密、兼具硬核深度与公众传播力的「解释模型」。
         </p>
       </div>
 
-      <div class="section-title">合作四步流程</div>
+      <div class="section-title">合作流程</div>
       <div class="process-grid">
         <div class="process-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 1.5,1.8 C 25,1.5 50,2.2 75,1.7 C 88,2.1 95,1.6 98.4,1.8 C 98.1,25 98.5,50 98.2,75 C 98.5,88 98.1,95 98.3,98.2 C 75,98.5 50,97.8 25,98.3 C 12,97.9 5,98.4 1.6,98.1 C 1.9,75 1.5,50 1.8,25 C 1.4,12 1.9,5 1.5,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/></svg>
@@ -317,14 +405,14 @@
         <div class="process-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 1.8,2.0 C 30,2.3 60,1.7 85,2.1 C 92,1.8 96,2.2 98.2,1.9 C 98.5,30 97.9,60 98.3,85 C 98.0,92 98.4,96 98.1,98.0 C 70,97.7 40,98.3 15,97.9 C 8,98.2 4,97.8 1.8,98.2 C 1.5,70 2.1,40 1.7,15 C 2.0,8 1.6,4 1.8,2.0 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/></svg>
           <b>STEP 02</b>
-          <h4>确认方案与报价</h4>
-          <p>我们评估选题门槛与工作量，明确交付内容形式与合作排期。</p>
+          <h4>评估与方案对齐</h4>
+          <p>我们评估技术理解入口与叙事角度，与团队确认核心逻辑。</p>
         </div>
         <div class="process-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 1.6,1.9 C 28,1.8 55,2.1 80,1.8 C 90,1.9 96,1.7 98.3,2.1 C 98.1,28 98.4,55 98.0,80 C 98.2,90 98.0,96 98.2,98.2 C 80,98.1 55,98.3 28,98.0 C 18,98.2 6,98.0 1.7,98.3 C 2.1,80 1.8,55 2.1,28 C 1.8,18 2.0,6 1.6,1.9 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/></svg>
           <b>STEP 03</b>
-          <h4>理解产品，确定讲法</h4>
-          <p>深入消化技术事实，寻找大众认知切口与白板视觉逻辑。</p>
+          <h4>商务敲定与排期</h4>
+          <p>确认合作细节、合同签署并锁定发布排期。</p>
         </div>
         <div class="process-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 1.7,1.8 C 22,2.0 52,1.7 78,2.1 C 89,1.8 95,2.0 98.2,1.8 C 98.0,26 98.4,54 98.1,82 C 98.3,91 97.9,95 98.2,98.1 C 76,98.0 48,98.3 22,97.9 C 14,98.1 6,97.8 1.8,98.0 C 2.0,76 1.7,48 2.0,22 C 1.7,14 2.1,6 1.7,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/></svg>
@@ -345,7 +433,10 @@
         </div>
         <div class="contact-row">
           <span class="contact-label">商务微信</span>
-          <span class="contact-val">Emma_6940</span>
+          <span class="contact-val">
+            <span id="wechat-val">Emma_6940</span>
+            <button type="button" class="copy-btn" id="copy-btn" onclick="copyWechat()">复制</button>
+          </span>
         </div>
         <div class="contact-row">
           <span class="contact-label">工作邮箱</span>
@@ -363,9 +454,49 @@
       <path d="M0,8 C220,3 440,11 660,5 C820,2 920,9 1000,7" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
     </svg>
 
-    <footer>
-      <p>&copy; 2026 通俗解释 · 保留所有权利。</p>
+    <footer class="site-footer">
+      <div>&copy; 2026 通俗解释 · 保持好奇，勾勒本质。</div>
+      <div>全网搜索「通俗解释」：B站 · 抖音 · 视频号 · 小红书</div>
     </footer>
   </div>
+
+  <script>
+    function copyWechat() {
+      const val = document.getElementById('wechat-val').innerText.trim();
+      const btn = document.getElementById('copy-btn');
+      
+      function onSuccess() {
+        btn.innerText = '已复制 ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = '复制';
+          btn.classList.remove('copied');
+        }, 2000);
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(val).then(onSuccess).catch(() => fallbackCopy(val, onSuccess));
+      } else {
+        fallbackCopy(val, onSuccess);
+      }
+
+      function fallbackCopy(text, cb) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          document.execCommand('copy');
+          cb();
+        } catch (e) {
+          console.error('Fallback copy failed', e);
+        }
+        document.body.removeChild(ta);
+      }
+    }
+  </script>
 </body>
 </html>

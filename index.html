@@ -57,8 +57,10 @@
       z-index: 1;
     }
 
-    .sketch-card:hover {
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      a.sketch-card:hover {
+        transform: translateY(-2px);
+      }
     }
 
     .sketch-svg {
@@ -76,7 +78,7 @@
       background: linear-gradient(104deg, rgba(230, 138, 0, 0) 0.5%, var(--marker) 2%, var(--marker) 95%, rgba(230, 138, 0, 0) 98%);
       padding: 2px 6px;
       border-radius: 3px;
-      font-weight: 600;
+      font-weight: inherit;
     }
 
     /* Header */
@@ -84,7 +86,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 24px;
+      padding-bottom: 36px;
     }
 
     .brand {
@@ -137,14 +139,14 @@
 
     /* Hero */
     .hero {
-      padding: 16px 0 8px;
+      padding: 0 0 8px;
     }
 
     .hero h1 {
       font-size: clamp(2.3rem, 5.5vw, 3.4rem);
       font-weight: 800;
       line-height: 1.25;
-      letter-spacing: -0.025em;
+      letter-spacing: 0;
       margin-bottom: 20px;
     }
 
@@ -291,9 +293,7 @@
       transition: transform 0.2s ease;
     }
 
-    .platform-card:hover .hand-logo-img {
-      transform: scale(1.06);
-    }
+
 
     .platform-name {
       font-size: 0.95rem;
@@ -361,14 +361,9 @@
       <nav class="site-nav">
         <a href="cases.html">案例</a>
         <a href="method.html">方法</a>
-        <a href="cooperate.html" class="highlight-nav">商务合作 ↗</a>
+        <a href="cooperate.html" class="highlight-nav">商务合作</a>
       </nav>
     </header>
-
-    <!-- Hand-drawn divider -->
-    <svg class="sketch-divider" viewBox="0 0 1000 12" preserveAspectRatio="none">
-      <path d="M0,6 C180,10 320,2 500,7 C680,11 820,3 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
-    </svg>
 
     <main>
       <section class="hero">
@@ -454,7 +449,7 @@
           <p>
             围绕硬核科技与商业产品，我们提供从深度理解到大众表达的商业内容合作。
           </p>
-          <a href="cooperate.html" class="cooperate-btn">了解商务合作方式与联络 ↗</a>
+          <a href="cooperate.html" class="cooperate-btn">了解商务合作方式与联络</a>
         </div>
       </section>
     </main>
@@ -466,7 +461,7 @@
 
     <footer class="site-footer">
       <div>&copy; 2026 通俗解释 · 保持好奇，勾勒本质。</div>
-      <div>全网搜索「通俗解释」：B站 · 抖音 · 视频号</div>
+      <div>全网搜索「通俗解释」：B站 · 抖音 · 视频号 · 小红书</div>
     </footer>
   </div>
 </body>
