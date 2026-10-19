@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>商务合作 | 通俗解释</title>
   <meta name="description" content="通俗解释的商业内容合作方式与联络信息。">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="商务合作 | 通俗解释">
+  <meta property="og:description" content="通俗解释的商业内容合作方式与联络信息。">
+  <meta property="og:site_name" content="通俗解释">
   <style>
     :root {
       --bg: #F2F0E9;
@@ -327,9 +332,9 @@
     }
 
     .copy-btn.copied {
-      background: #E6F4EA;
-      color: #137333;
-      border-color: #34A853;
+      background: var(--ink);
+      color: #F2F0E9;
+      border-color: var(--ink);
     }
 
     /* Footer */
@@ -467,10 +472,14 @@
       
       function onSuccess() {
         btn.innerText = '已复制 ✓';
-        btn.classList.add('copied');
+        btn.style.backgroundColor = '#1A1C18';
+        btn.style.color = '#F2F0E9';
+        btn.style.borderColor = '#1A1C18';
         setTimeout(() => {
           btn.innerText = '复制';
-          btn.classList.remove('copied');
+          btn.style.backgroundColor = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
         }, 2000);
       }
 

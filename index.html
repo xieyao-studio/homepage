@@ -12,9 +12,9 @@
       --card-inner: #FFFFFF;
       --ink: #1A1C18;
       --ink-muted: #55594F;
-      --ink-light: #7E8277;
+      --ink-light: #6A6E63;
       --line: rgba(26, 28, 24, 0.15);
-      --marker: rgba(230, 138, 0, 0.22);
+      --marker: #F7E396;
       --max-w: 740px;
     }
 
@@ -94,9 +94,9 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       text-decoration: none;
       color: var(--ink);
     }
@@ -134,8 +134,6 @@
     nav.site-nav a.highlight-nav {
       color: var(--ink);
       font-weight: 700;
-      border-bottom: 1.5px solid var(--ink);
-      padding-bottom: 2px;
     }
 
     /* Hero */
@@ -232,82 +230,6 @@
       margin-bottom: 20px;
     }
 
-    /* Stance Section */
-    .stance-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 620px) {
-      .stance-grid { grid-template-columns: 1fr; }
-    }
-
-    .stance-card {
-      padding: 24px 26px;
-    }
-
-    .stance-label {
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      display: inline-block;
-      margin-bottom: 8px;
-      border-bottom: 1.5px solid var(--ink);
-      padding-bottom: 2px;
-    }
-
-    .stance-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      line-height: 1.45;
-    }
-
-    .stance-card p {
-      font-size: 0.92rem;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    /* Focus Areas */
-    .areas-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .area-card {
-      padding: 22px 26px;
-    }
-
-    .area-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 6px;
-    }
-
-    .area-num {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--ink-light);
-    }
-
-    .area-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .area-card p {
-      font-size: 0.93rem;
-      color: var(--ink-muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
     /* Platforms Grid */
     .platforms-grid {
       display: grid;
@@ -373,7 +295,7 @@
 
     .cooperate-strip a.cooperate-btn {
       color: var(--ink);
-      font-weight: 800;
+      font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
       border-bottom: 2px solid var(--ink);
@@ -470,14 +392,14 @@
           </a>
 
           <!-- WeChat Channels (视频号) -->
-          <a href="https://weixin.qq.com" target="_blank" rel="noopener" class="platform-card sketch-card">
+          <div class="platform-card sketch-card" style="cursor: default;" title="请在微信内搜索「通俗解释」">
             <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path d="M 2,2.4 C 35,1.5 68,3 98,2 C 98.6,35 97.4,70 98,97.6 C 68,98.4 30,97.2 2,97.8 C 1.2,68 2.5,30 2,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
             </svg>
             <img src="images/logo-channels.png" class="hand-logo-img" alt="视频号" />
             <span class="platform-name">视频号</span>
-            <span class="platform-sub">微信搜通俗解释 ↗</span>
-          </a>
+            <span class="platform-sub">微信搜通俗解释</span>
+          </div>
 
           <!-- Xiaohongshu (小红书) -->
           <a href="https://www.xiaohongshu.com/search_result?keyword=%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener" class="platform-card sketch-card">
