@@ -142,18 +142,43 @@
       padding: 0 0 8px;
     }
 
-    .hero h1 {
+    .hero-title {
       font-size: clamp(2.3rem, 5.5vw, 3.4rem);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.25;
       letter-spacing: 0;
-      margin-bottom: 20px;
+      margin: 0 0 24px;
+    }
+
+    .whiteboard-wrap {
+      position: relative;
+      margin: 28px 0;
+    }
+
+    .hero-mascot {
+      position: absolute;
+      right: 32px;
+      bottom: calc(100% - 4px);
+      height: 135px;
+      width: auto;
+      object-fit: contain;
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @media (max-width: 600px) {
+      .hero-mascot {
+        height: 100px;
+        right: 16px;
+      }
     }
 
     /* Whiteboard Stage */
     .whiteboard-stage {
       padding: 32px 36px;
-      margin: 28px 0;
+      margin: 0;
     }
 
     .whiteboard-statement {
@@ -367,20 +392,23 @@
 
     <main>
       <section class="hero">
-        <h1>
+        <h1 class="hero-title">
           把复杂的事情，<br>
           解释得简单些。
         </h1>
 
-        <!-- Whiteboard Stage -->
-        <div class="whiteboard-stage sketch-card">
-          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 0.4,1.8 C 25,1.1 75,2.4 99.55,1.4 C 99.8,30 99.3,70 99.55,98.6 C 75,98.9 25,97.8 0.4,98.6 C 0.2,70 0.6,30 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.8" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
-          </svg>
+        <!-- Whiteboard Stage with Mascot -->
+        <div class="whiteboard-wrap">
+          <img src="images/mascot.png" class="hero-mascot" alt="通俗解释频道角色" />
+          <div class="whiteboard-stage sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 0.4,1.8 C 25,1.1 75,2.4 99.55,1.4 C 99.8,30 99.3,70 99.55,98.6 C 75,98.9 25,97.8 0.4,98.6 C 0.2,70 0.6,30 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.8" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+            </svg>
 
-          <div class="whiteboard-statement">
-            <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
-            <p>真正的理解，是用<span class="marker">已知</span>连接<span class="marker">未知</span>。</p>
+            <div class="whiteboard-statement">
+              <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
+              <p>真正的理解，是用<span class="marker">已知</span>连接<span class="marker">未知</span>。</p>
+            </div>
           </div>
         </div>
       </section>
