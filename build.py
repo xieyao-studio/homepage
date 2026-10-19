@@ -13,118 +13,110 @@ article_template = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} | XY · 通俗解释</title>
+  <title>{title} | 通俗解释</title>
   <style>
     :root {{
-      --bg: #fafafa;
-      --surface: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --tag-bg: #f3f4f6;
-      --tag-text: #374151;
-      --max-w: 740px;
-    }}
-    @media (prefers-color-scheme: dark) {{
-      :root {{
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --border: #334155;
-        --accent: #38bdf8;
-        --accent-hover: #7dd3fc;
-        --tag-bg: #334155;
-        --tag-text: #e2e8f0;
-      }}
+      --bg: #fcfbf9;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #8c8c8c;
+      --border: #eae6df;
+      --border-dark: #d5cfc4;
+      --accent: #111111;
+      --max-width: 720px;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--text);
       line-height: 1.8;
-      padding: 40px 20px 80px;
+      padding: 50px 24px 100px;
       -webkit-font-smoothing: antialiased;
     }}
     .container {{
-      max-width: var(--max-w);
+      max-width: var(--max-width);
       margin: 0 auto;
     }}
     nav {{
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       display: flex;
       gap: 16px;
       font-size: 0.95rem;
     }}
     nav a {{
-      color: var(--accent);
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: 500;
+      border-bottom: 1px dotted var(--text-muted);
+      padding-bottom: 2px;
     }}
-    nav a:hover {{ text-decoration: underline; }}
+    nav a:hover {{
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }}
     header {{
-      margin-bottom: 32px;
-      padding-bottom: 20px;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }}
     h1 {{
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.35;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
       margin-bottom: 12px;
     }}
     .meta {{
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--text-light);
     }}
     .content {{
       font-size: 1.05rem;
       line-height: 1.85;
+      color: var(--text);
     }}
     .content p {{
-      margin-bottom: 1.5em;
+      margin-bottom: 1.6em;
     }}
     .content h2, .content h3, .content h4 {{
-      margin-top: 1.8em;
+      margin-top: 2em;
       margin-bottom: 0.8em;
       line-height: 1.4;
+      font-weight: 700;
     }}
     .content img {{
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      margin: 1.5em 0;
+      border-radius: 4px;
+      margin: 1.8em 0;
       display: block;
       border: 1px solid var(--border);
     }}
     .content figure {{
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }}
     .content blockquote {{
-      border-left: 4px solid var(--accent);
-      padding: 8px 16px;
-      margin: 1.5em 0;
-      background: var(--surface);
-      border-radius: 0 8px 8px 0;
+      border-left: 3px solid var(--border-dark);
+      padding: 10px 18px;
+      margin: 1.6em 0;
+      background: var(--card-bg);
       color: var(--text-muted);
     }}
     .content ul, .content ol {{
-      margin: 1em 0 1.5em 24px;
+      margin: 1em 0 1.6em 24px;
+      color: var(--text-muted);
     }}
     .content li {{
       margin-bottom: 0.5em;
     }}
     footer {{
-      margin-top: 64px;
-      padding-top: 24px;
+      margin-top: 80px;
+      padding-top: 28px;
       border-top: 1px solid var(--border);
-      text-align: center;
+      text-align: left;
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-light);
     }}
   </style>
 </head>
@@ -132,17 +124,17 @@ article_template = """<!DOCTYPE html>
   <div class="container">
     <nav>
       <a href="../index.html">← 返回首页</a>
-      <a href="../articles.html">全部文章</a>
+      <a href="../articles.html">全部文章归档</a>
     </nav>
     <header>
       <h1>{title}</h1>
-      <div class="meta">发布日期：{date} · XY · 通俗解释</div>
+      <div class="meta">发布日期：{date} · 通俗解释</div>
     </header>
     <article class="content">
       {content}
     </article>
     <footer>
-      <p>&copy; 2026 XY · 通俗解释 · 保留所有权利</p>
+      <p>&copy; 2026 通俗解释. 保留所有权利。</p>
     </footer>
   </div>
 </body>
@@ -154,74 +146,63 @@ articles_index_template = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>文章归档 | XY · 通俗解释</title>
+  <title>文章归档 | 通俗解释</title>
   <style>
     :root {{
-      --bg: #fafafa;
-      --surface: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --tag-bg: #f3f4f6;
-      --tag-text: #374151;
-      --radius: 12px;
-      --max-w: 800px;
-    }}
-    @media (prefers-color-scheme: dark) {{
-      :root {{
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --border: #334155;
-        --accent: #38bdf8;
-        --tag-bg: #334155;
-        --tag-text: #e2e8f0;
-      }}
+      --bg: #fcfbf9;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #8c8c8c;
+      --border: #eae6df;
+      --border-dark: #d5cfc4;
+      --accent: #111111;
+      --max-width: 720px;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 40px 20px 80px;
+      color: var(--text);
+      line-height: 1.75;
+      padding: 50px 24px 100px;
       -webkit-font-smoothing: antialiased;
     }}
-    .container {{ max-width: var(--max-w); margin: 0 auto; }}
-    nav {{ margin-bottom: 32px; }}
-    nav a {{ color: var(--accent); text-decoration: none; font-weight: 500; }}
-    nav a:hover {{ text-decoration: underline; }}
-    header {{ margin-bottom: 40px; }}
-    h1 {{ font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }}
-    .subtitle {{ color: var(--text-muted); font-size: 1.05rem; }}
-    .post-list {{ display: flex; flex-direction: column; gap: 14px; }}
+    .container {{ max-width: var(--max-width); margin: 0 auto; }}
+    nav {{ margin-bottom: 36px; }}
+    nav a {{
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-muted);
+      padding-bottom: 2px;
+      font-size: 0.95rem;
+    }}
+    nav a:hover {{ color: var(--text); border-bottom-color: var(--text); }}
+    header {{ margin-bottom: 48px; }}
+    h1 {{ font-size: 1.85rem; font-weight: 700; margin-bottom: 10px; }}
+    .subtitle {{ color: var(--text-muted); font-size: 1rem; }}
+    .post-list {{ display: flex; flex-direction: column; }}
     .post-card {{
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      transition: all 0.15s ease;
+      align-items: baseline;
+      gap: 16px;
     }}
-    .post-card:hover {{
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }}
-    .post-title {{ font-size: 1.05rem; font-weight: 600; color: var(--text-main); }}
-    .post-date {{ font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; margin-left: 16px; }}
+    .post-card:last-child {{ border-bottom: none; }}
+    .post-card:hover .post-title {{ text-decoration: underline; }}
+    .post-title {{ font-size: 1.05rem; font-weight: 600; color: var(--text); }}
+    .post-date {{ font-size: 0.85rem; color: var(--text-light); white-space: nowrap; }}
     footer {{
-      margin-top: 64px;
-      text-align: center;
+      margin-top: 80px;
+      text-align: left;
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-light);
       border-top: 1px solid var(--border);
-      padding-top: 24px;
+      padding-top: 28px;
     }}
   </style>
 </head>
@@ -230,13 +211,13 @@ articles_index_template = """<!DOCTYPE html>
     <nav><a href="index.html">← 返回首页</a></nav>
     <header>
       <h1>文章归档</h1>
-      <p class="subtitle">历史发表的科技深度科普、产业机制拆解与行业动态。</p>
+      <p class="subtitle">历史发表的科技科普、机制拆解与行业动态。</p>
     </header>
     <div class="post-list">
       {post_items_html}
     </div>
     <footer>
-      <p>&copy; 2026 XY · 通俗解释 · 保留所有权利</p>
+      <p>&copy; 2026 通俗解释. 保留所有权利。</p>
     </footer>
   </div>
 </body>
@@ -264,7 +245,6 @@ for filename in os.listdir(posts_dir):
     raw_content = parts[1].strip() if len(parts) > 1 else text
     
     # Replace image URLs
-    # Match https://tongsujieshi.com/wp-content/uploads/.../filename.ext
     def repl_img(m):
         full_url = m.group(0)
         parsed = urllib.parse.urlsplit(full_url)
@@ -272,10 +252,8 @@ for filename in os.listdir(posts_dir):
         return f"../images/{name}"
     
     clean_content = re.sub(r'https?://tongsujieshi\.com/wp-content/uploads/[^\s"\'<>)]+', repl_img, raw_content)
-    # Also strip leftover WP block comments like <!-- wp:... -->
     clean_content = re.sub(r'<!--\s*/?wp:[^>]*-->', '', clean_content)
     
-    # Build slug
     slug = re.sub(r'[\\/*?:\":<>|\s]', '-', title)[:50].strip('-')
     out_html = os.path.join(out_posts_dir, f'{slug}.html')
     
@@ -294,10 +272,8 @@ for filename in os.listdir(posts_dir):
         'slug': f'{slug}.html'
     })
 
-# Sort posts by date descending
 posts_data.sort(key=lambda x: x['date'], reverse=True)
 
-# Generate articles.html
 post_items_html = ""
 for p in posts_data:
     post_items_html += f"""      <a href="posts/{p['slug']}" class="post-card">

@@ -3,118 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RTE2024：聚焦Gen AI时代的RTE，声网发布RTE+AI能力全景图 | XY · 通俗解释</title>
+  <title>RTE2024：聚焦Gen AI时代的RTE，声网发布RTE+AI能力全景图 | 通俗解释</title>
   <style>
     :root {
-      --bg: #fafafa;
-      --surface: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --tag-bg: #f3f4f6;
-      --tag-text: #374151;
-      --max-w: 740px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --border: #334155;
-        --accent: #38bdf8;
-        --accent-hover: #7dd3fc;
-        --tag-bg: #334155;
-        --tag-text: #e2e8f0;
-      }
+      --bg: #fcfbf9;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #8c8c8c;
+      --border: #eae6df;
+      --border-dark: #d5cfc4;
+      --accent: #111111;
+      --max-width: 720px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--text);
       line-height: 1.8;
-      padding: 40px 20px 80px;
+      padding: 50px 24px 100px;
       -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: var(--max-w);
+      max-width: var(--max-width);
       margin: 0 auto;
     }
     nav {
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       display: flex;
       gap: 16px;
       font-size: 0.95rem;
     }
     nav a {
-      color: var(--accent);
+      color: var(--text-muted);
       text-decoration: none;
-      font-weight: 500;
+      border-bottom: 1px dotted var(--text-muted);
+      padding-bottom: 2px;
     }
-    nav a:hover { text-decoration: underline; }
+    nav a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
     header {
-      margin-bottom: 32px;
-      padding-bottom: 20px;
+      margin-bottom: 36px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
     }
     h1 {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.35;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
       margin-bottom: 12px;
     }
     .meta {
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--text-light);
     }
     .content {
       font-size: 1.05rem;
       line-height: 1.85;
+      color: var(--text);
     }
     .content p {
-      margin-bottom: 1.5em;
+      margin-bottom: 1.6em;
     }
     .content h2, .content h3, .content h4 {
-      margin-top: 1.8em;
+      margin-top: 2em;
       margin-bottom: 0.8em;
       line-height: 1.4;
+      font-weight: 700;
     }
     .content img {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      margin: 1.5em 0;
+      border-radius: 4px;
+      margin: 1.8em 0;
       display: block;
       border: 1px solid var(--border);
     }
     .content figure {
-      margin: 1.5em 0;
+      margin: 1.8em 0;
     }
     .content blockquote {
-      border-left: 4px solid var(--accent);
-      padding: 8px 16px;
-      margin: 1.5em 0;
-      background: var(--surface);
-      border-radius: 0 8px 8px 0;
+      border-left: 3px solid var(--border-dark);
+      padding: 10px 18px;
+      margin: 1.6em 0;
+      background: var(--card-bg);
       color: var(--text-muted);
     }
     .content ul, .content ol {
-      margin: 1em 0 1.5em 24px;
+      margin: 1em 0 1.6em 24px;
+      color: var(--text-muted);
     }
     .content li {
       margin-bottom: 0.5em;
     }
     footer {
-      margin-top: 64px;
-      padding-top: 24px;
+      margin-top: 80px;
+      padding-top: 28px;
       border-top: 1px solid var(--border);
-      text-align: center;
+      text-align: left;
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-light);
     }
   </style>
 </head>
@@ -122,11 +114,11 @@
   <div class="container">
     <nav>
       <a href="../index.html">← 返回首页</a>
-      <a href="../articles.html">全部文章</a>
+      <a href="../articles.html">全部文章归档</a>
     </nav>
     <header>
       <h1>RTE2024：聚焦Gen AI时代的RTE，声网发布RTE+AI能力全景图</h1>
-      <div class="meta">发布日期：2024-10-29 · XY · 通俗解释</div>
+      <div class="meta">发布日期：2024-10-29 · 通俗解释</div>
     </header>
     <article class="content">
       
@@ -254,7 +246,7 @@
 
     </article>
     <footer>
-      <p>&copy; 2026 XY · 通俗解释 · 保留所有权利</p>
+      <p>&copy; 2026 通俗解释. 保留所有权利。</p>
     </footer>
   </div>
 </body>
