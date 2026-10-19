@@ -91,14 +91,38 @@
       margin-bottom: 32px;
     }
 
+    /* Sketch Card Base (Strictly level, SVG handles both fill and stroke) */
+    .sketch-card {
+      position: relative;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      transition: transform 0.2s ease;
+    }
+
+    .sketch-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sketch-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .sketch-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: visible;
+    }
+
     /* Problem statement callout */
     .problem-card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       padding: 28px 32px;
       margin-bottom: 36px;
-      box-shadow: 3px 3px 0 var(--line);
     }
 
     .problem-card h2 {
@@ -137,12 +161,8 @@
 
     /* Core promise */
     .promise-card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       padding: 24px 28px;
       margin-bottom: 40px;
-      box-shadow: 3px 3px 0 var(--line);
     }
 
     .promise-card h3 {
@@ -205,11 +225,7 @@
 
     /* Contact box */
     .contact-box {
-      background: var(--card-bg);
-      border: 1.5px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       padding: 32px;
-      box-shadow: 3px 3px 0 var(--line);
     }
 
     .contact-box h3 {
@@ -266,7 +282,10 @@
     </header>
 
     <main>
-      <div class="problem-card">
+      <div class="problem-card sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 1.5,2 C 30,1 70,2.8 98.5,1.8 C 99,32 98,68 98.5,98 C 68,98.8 30,97.2 1.5,98.2 C 1,68 2,32 1.5,2 Z" fill="#FAF9F5" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
         <h2>专业的人讲得准确，普通的人却听不进去。</h2>
         <p>
           我们在协助技术大厂与硬核产品沟通时，经常发现三种普遍的障碍：
@@ -278,7 +297,10 @@
         </ul>
       </div>
 
-      <div class="promise-card">
+      <div class="promise-card sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 2,1.8 C 32,2.6 68,1.4 98,2.2 C 98.8,32 97.6,68 98.2,97.8 C 68,97 32,98.4 1.8,97.6 C 2.4,68 1.4,32 2,1.8 Z" fill="#FAF9F5" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
         <h3>不是拿到资料就开写，我们会先帮你把这件事想明白。</h3>
         <p>
           正式创作前，我们会听你介绍产品，阅读必要的技术与行业资料，站在普通人的真实认知起点上找出最难理解的地方，再一起确认先讲什么、怎么讲，以及用什么生活经验和比喻更容易推通。这项深度消化工作包含在每次内容合作中。
@@ -309,7 +331,10 @@
         </div>
       </div>
 
-      <div class="contact-box">
+      <div class="contact-box sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 1.8,2.2 C 30,1.2 70,3 98,2 C 98.6,32 97.4,68 98,98 C 68,98.6 30,97.2 2,97.8 C 1.2,68 2.4,30 1.8,2.2 Z" fill="#FAF9F5" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        </svg>
         <h3>商业合作联络</h3>
         <div class="contact-row">
           <span class="contact-label">商务负责人</span>
