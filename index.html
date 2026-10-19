@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任宇翔 (XY) · 通俗解释 | 商业合作与作品集</title>
+  <meta name="description" content="科技、商业与硬核领域的通俗解释。把复杂的产业机制与底层逻辑，讲成人人可检验的朴素常识。">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #f3f4f6;
+      --tag-text: #374151;
+      --radius: 12px;
+      --max-w: 800px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #334155;
+        --accent: #38bdf8;
+        --accent-hover: #7dd3fc;
+        --tag-bg: #334155;
+        --tag-text: #e2e8f0;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--tag-bg);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .bio {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .header-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      .btn-primary { color: #0f172a; }
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+    }
+
+    /* Section */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Cards */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .card-title:hover {
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Partners / Brands */
+    .brands-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Contact & Policy Box */
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .info-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+
+    .info-box li {
+      margin-bottom: 6px;
+    }
+
+    .contact-channels {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-line strong {
+      width: 90px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 64px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Content Creator &amp; Studio</div>
+      <h1>任宇翔 (XY) · 通俗解释</h1>
+      <p class="bio">
+        聚焦科技、商业与硬核领域的深度通俗解释。<br>
+        把复杂的产业机制与底层逻辑，讲成人人可检验、可推演的朴素常识。
+      </p>
+      <div class="header-links">
+        <a href="#contact" class="btn btn-primary">商业合作洽谈</a>
+        <a href="#works" class="btn btn-outline">代表案例</a>
+        <a href="https://space.bilibili.com" target="_blank" rel="noopener" class="btn btn-outline">Bilibili 主页 ↗</a>
+      </div>
+    </header>
+
+    <section id="works">
+      <h2>精选案例与代表作</h2>
+      <div class="card-list">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">华为云芯片 EDA 解决方案</span>
+            <div class="tags">
+              <span class="tag">硬科技</span>
+              <span class="tag">芯片制造</span>
+            </div>
+          </div>
+          <p class="card-desc">
+            拆解万亿级晶体管如何在云端并行仿真。将复杂的芯片 EDA 上云与物理设计约束，翻译为直观的算力调度机制。
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">高通骁龙：端侧 AI 与异构计算</span>
+            <div class="tags">
+              <span class="tag">移动芯片</span>
+              <span class="tag">端侧AI</span>
+            </div>
+          </div>
+          <p class="card-desc">
+            穿透手机厂商宣发的参数黑话，讲透 CPU、GPU 与 NPU 协同处理大语言模型的真实能效边界。
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">地平线 HSD：高阶智驾与端到端系统</span>
+            <div class="tags">
+              <span class="tag">智能驾驶</span>
+              <span class="tag">算法与芯片</span>
+            </div>
+          </div>
+          <p class="card-desc">
+            从城区无图到端到端大模型，解析智能驾驶方案在传感器融合与实时计算上的工程取舍与真实表现。
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">自主选题：彼得·林奇商业投资与产业常识系列</span>
+            <div class="tags">
+              <span class="tag">商业与金融</span>
+              <span class="tag">通俗机制</span>
+            </div>
+          </div>
+          <p class="card-desc">
+            剥离金融衍生品与晦涩术语，用日常经验与资产负债逻辑，复盘真实商业周期与企业护城河。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>合作过的技术伙伴与品牌</h2>
+      <div class="brands-grid">
+        <div class="brand-item">华为云 (Huawei Cloud)</div>
+        <div class="brand-item">高通 (Qualcomm)</div>
+        <div class="brand-item">蚂蚁集团 (Ant Group)</div>
+        <div class="brand-item">地平线 (Horizon Robotics)</div>
+        <div class="brand-item">小鹏汽车 (XPeng)</div>
+        <div class="brand-item">宁德时代 (CATL)</div>
+        <div class="brand-item">亚朵 (Atour)</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>商业合作与联络</h2>
+      <div class="info-box">
+        <p><strong>我们的合作准则：</strong></p>
+        <ul>
+          <li><strong>讲真实因果</strong>：坚持事实核验，穿透宣传口号，让观众看懂产品解决什么具体问题。</li>
+          <li><strong>守观众信任</strong>：不配合排他夸张、虚假定论与无意义通稿。真正的好产品经得起推敲。</li>
+          <li><strong>完整闭环</strong>：前期调研对账、深度脚本、分镜与视觉呈现，提供完整交付支持。</li>
+        </ul>
+
+        <div class="contact-channels">
+          <div class="contact-line">
+            <strong>商务合作：</strong>
+            <span>商务负责人 Emma (微信/电话同号或发至工作邮箱)</span>
+          </div>
+          <div class="contact-line">
+            <strong>工作邮箱：</strong>
+            <span>contact@yourdomain.com <!-- 替换为你的真实工作邮箱 --></span>
+          </div>
+          <div class="contact-line">
+            <strong>团队坐标：</strong>
+            <span>北京</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> 任宇翔 (XY) · 保留所有权利</p>
+    </footer>
+  </div>
+</body>
+</html>
