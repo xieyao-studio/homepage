@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商务合作 | 通俗解释</title>
+  <meta name="description" content="让好产品，被真正听懂。通俗解释商业合作与定制内容。">
+  <style>
+    :root {
+      --bg: #F2F0E9;
+      --card-bg: #FAF9F5;
+      --card-inner: #FFFFFF;
+      --ink: #1A1C18;
+      --ink-muted: #55594F;
+      --ink-light: #7E8277;
+      --line: rgba(26, 28, 24, 0.18);
+      --line-strong: rgba(26, 28, 24, 0.4);
+      --accent: #E68A00;
+      --accent-soft: rgba(230, 138, 0, 0.12);
+      --max-w: 740px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      padding: 48px 24px 120px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* Hand-drawn SVG lines */
+    .sketch-divider {
+      width: 100%;
+      height: 12px;
+      margin: 40px 0;
+      display: block;
+      overflow: visible;
+    }
+
+    /* Header & Nav */
+    header.page-header {
+      margin-bottom: 32px;
+    }
+
+    nav.back-nav {
+      margin-bottom: 24px;
+    }
+
+    nav.back-nav a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px dotted var(--ink-muted);
+      padding-bottom: 2px;
+    }
+
+    nav.back-nav a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .kicker {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* Problem statement callout */
+    .problem-card {
+      background: var(--card-bg);
+      border: 2px solid var(--ink);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .problem-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .problem-card p {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .problem-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .problem-points li {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      display: flex;
+      gap: 10px;
+    }
+
+    .problem-points li b {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    /* Core promise */
+    .promise-card {
+      background: var(--accent-soft);
+      border: 1.5px dashed var(--accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .promise-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .promise-card p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* Process steps */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    .process-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .process-card b {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .process-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .process-card p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--card-bg);
+      border: 2px solid var(--ink);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      padding: 32px;
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .contact-box h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .contact-row {
+      display: flex;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .contact-row:last-child { margin-bottom: 0; }
+
+    .contact-label {
+      width: 100px;
+      color: var(--ink-light);
+      font-weight: 500;
+    }
+
+    .contact-val {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .contact-val a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <nav class="back-nav">
+        <a href="index.html">← 返回首页</a>
+      </nav>
+      <span class="kicker">商业合作与咨询</span>
+      <h1>让好产品，被真正听懂。</h1>
+      <p class="lead">
+        很多企业的问题不是产品不好，而是普通人无法迅速理解：它为什么重要，又与自己有什么关系。
+      </p>
+    </header>
+
+    <main>
+      <div class="problem-card">
+        <h2>专业的人讲得准确，普通的人却听不进去。</h2>
+        <p>
+          我们在协助技术大厂与硬核产品沟通时，经常发现三种普遍的障碍：
+        </p>
+        <ul class="problem-points">
+          <li><b>01</b> <span>产品资料极多，却没有一个能让外行秒懂的核心因果。</span></li>
+          <li><b>02</b> <span>内部工程师太熟悉技术细节，看不见普通人的理解台阶与盲区。</span></li>
+          <li><b>03</b> <span>官方宣传足够严谨，却无法在大众社交平台形成自发讨论与二次传播。</span></li>
+        </ul>
+      </div>
+
+      <div class="promise-card">
+        <h3>不是拿到资料就开写，我们会先帮你把这件事想明白。</h3>
+        <p>
+          正式创作前，我们会听你介绍产品，阅读必要的技术与行业资料，站在普通人的真实认知起点上找出最难理解的地方，再一起确认先讲什么、怎么讲，以及用什么生活经验和比喻更容易推通。这项深度消化工作包含在每次内容合作中。
+        </p>
+      </div>
+
+      <div class="section-title">合作四步流程</div>
+      <div class="process-grid">
+        <div class="process-card">
+          <b>STEP 01</b>
+          <h4>告诉我们要讲什么</h4>
+          <p>提供产品背景、传播目标、排期要求与意向投放渠道。</p>
+        </div>
+        <div class="process-card">
+          <b>STEP 02</b>
+          <h4>确认方案与报价</h4>
+          <p>我们评估选题门槛与工作量，明确交付内容形式与合作排期。</p>
+        </div>
+        <div class="process-card">
+          <b>STEP 03</b>
+          <h4>理解产品，确定讲法</h4>
+          <p>深入消化技术事实，寻找大众认知切口与白板视觉逻辑。</p>
+        </div>
+        <div class="process-card">
+          <b>STEP 04</b>
+          <h4>完成创作与交付</h4>
+          <p>完成全套深度脚本与视觉呈现，经严格事实核验后交付发布。</p>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <h3>商业合作联络</h3>
+        <div class="contact-row">
+          <span class="contact-label">商务负责人</span>
+          <span class="contact-val">Emma</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">商务微信</span>
+          <span class="contact-val">Emma_6940</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">工作邮箱</span>
+          <span class="contact-val"><a href="mailto:mc@tongsujieshi.com">mc@tongsujieshi.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">团队坐标</span>
+          <span class="contact-val">北京</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 通俗解释 · 保留所有权利。</p>
+    </footer>
+  </div>
+</body>
+</html>

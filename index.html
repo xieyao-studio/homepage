@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>通俗解释 · 官方主页</title>
-  <meta name="description" content="一个由好奇心驱动的内容品牌。把复杂的事情，解释得简单些。">
+  <meta name="description" content="把复杂的事情，解释得简单些。通俗的解释，是勾勒出事情的本质；真正的理解，是用「已知」连接「未知」。">
   <style>
     :root {
       --bg: #F2F0E9;
@@ -17,14 +17,10 @@
       --line-strong: rgba(26, 28, 24, 0.4);
       --accent: #E68A00;
       --accent-soft: rgba(230, 138, 0, 0.12);
-      --max-w: 780px;
+      --max-w: 740px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
@@ -99,25 +95,23 @@
       color: var(--ink);
     }
 
-    /* Hero */
-    .hero {
-      padding: 32px 0 16px;
+    nav.site-nav a.highlight-nav {
+      color: var(--ink);
+      font-weight: 700;
+      border-bottom: 1px dotted var(--ink);
+      padding-bottom: 2px;
     }
 
-    .kicker {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 16px;
+    /* Hero */
+    .hero {
+      padding: 24px 0 16px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-size: clamp(2.3rem, 5.5vw, 3.4rem);
       font-weight: 800;
       line-height: 1.25;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       margin-bottom: 24px;
     }
 
@@ -125,8 +119,12 @@
       font-size: 1.15rem;
       color: var(--ink-muted);
       line-height: 1.85;
-      max-width: 620px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
+    }
+
+    .hero-lead strong {
+      color: var(--ink);
+      font-weight: 600;
     }
 
     /* Hand-drawn Sketch Board */
@@ -135,7 +133,7 @@
       border: 2px solid var(--ink);
       border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       padding: 28px 32px;
-      margin: 20px 0 32px;
+      margin: 16px 0 28px;
       position: relative;
       box-shadow: 4px 4px 0 var(--line);
     }
@@ -156,289 +154,206 @@
     }
 
     .hand-formula {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
       color: var(--ink);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .hand-formula span.arrow {
       color: var(--accent);
+      font-size: 1.3rem;
     }
 
     /* Sections */
     section {
-      margin-bottom: 48px;
+      margin-bottom: 56px;
     }
 
     .section-title {
       font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: -0.01em;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: baseline;
     }
 
-    .section-title a.more-link {
-      font-size: 0.9rem;
-      font-weight: 500;
+    /* Stance Section: Oppose vs Deliver */
+    .stance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 620px) {
+      .stance-grid { grid-template-columns: 1fr; }
+    }
+
+    .stance-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--ink);
+      border-radius: 12px;
+      padding: 24px 26px;
+      box-shadow: 3px 3px 0 var(--line);
+    }
+
+    .stance-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .badge-oppose {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+
+    .badge-deliver {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .stance-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stance-card p {
+      font-size: 0.92rem;
       color: var(--ink-muted);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--line-strong);
+      line-height: 1.7;
     }
 
-    .section-title a.more-link:hover {
-      color: var(--ink);
-      border-bottom-color: var(--ink);
-    }
-
-    /* Article List */
-    .article-list {
+    /* Focus Areas: Territory */
+    .areas-list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
 
-    .article-item {
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
+    .area-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px 26px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
     }
 
-    .article-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .area-card:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
     }
 
-    .article-eyebrow {
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .area-tag {
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--accent);
-      margin-bottom: 4px;
-      display: block;
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
-    .article-title {
+    .area-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-      line-height: 1.45;
-      display: inline-block;
-      margin-bottom: 6px;
     }
 
-    .article-title:hover {
-      text-decoration: underline;
-    }
-
-    .article-desc {
+    .area-card p {
       font-size: 0.95rem;
       color: var(--ink-muted);
       line-height: 1.7;
     }
 
-    /* Methodology 4 Steps */
-    .method-box {
-      background: var(--card-bg);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 28px;
-    }
-
-    .method-core {
-      margin-bottom: 24px;
-    }
-
-    .method-core h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .method-core p {
-      color: var(--ink-muted);
-      font-size: 1rem;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 600px) {
-      .steps-grid { grid-template-columns: 1fr; }
-    }
-
-    .step-card {
-      background: var(--card-inner);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px 20px;
-    }
-
-    .step-num {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    .step-text {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    /* Beliefs */
-    .beliefs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .belief-item {
-      display: flex;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-    }
-
-    .belief-item strong {
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
-    /* Cooperate Section */
-    .cooperate-box {
-      background: var(--card-bg);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 32px;
-    }
-
-    .problem-callout {
-      border-left: 3px solid var(--ink);
-      padding: 12px 18px;
-      margin-bottom: 28px;
-      background: var(--card-inner);
-    }
-
-    .problem-callout h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .problem-callout p {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
-    }
-
-    .promise-strip {
-      background: var(--accent-soft);
-      border: 1px dashed var(--accent);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 28px;
-    }
-
-    .promise-strip strong {
-      display: block;
-      color: var(--ink);
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .promise-strip p {
-      font-size: 0.9rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-
-    .process-timeline {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    @media (max-width: 600px) {
-      .process-timeline { grid-template-columns: 1fr; }
-    }
-
-    .process-node {
-      background: var(--card-inner);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 14px 18px;
-    }
-
-    .process-node b {
-      font-size: 0.8rem;
-      color: var(--ink-light);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .process-node h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .process-node p {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.5;
-    }
-
-    /* Contact Card */
-    .contact-card {
+    /* Channels & Archive Bar */
+    .channels-bar {
       background: var(--card-bg);
       border: 2px solid var(--ink);
       border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      padding: 28px 32px;
-      margin-top: 24px;
-    }
-
-    .contact-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .contact-row {
+      padding: 24px 30px;
       display: flex;
-      margin-bottom: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .channels-info p {
       font-size: 0.95rem;
+      color: var(--ink-muted);
     }
 
-    .contact-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .contact-label {
-      width: 100px;
-      color: var(--ink-light);
-      font-weight: 500;
-    }
-
-    .contact-val {
+    .channels-info strong {
       color: var(--ink);
-      font-weight: 600;
+      font-size: 1rem;
     }
 
-    .contact-val a {
-      color: inherit;
-      text-decoration: underline;
+    .archive-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--ink);
+      color: #F2F0E9;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .archive-button:hover {
+      background: #33362E;
+    }
+
+    /* Commercial Bridge Strip */
+    .cooperate-strip {
+      background: var(--card-inner);
+      border: 1.5px dashed var(--line-strong);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .cooperate-strip p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    .cooperate-strip a.cooperate-btn {
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    .cooperate-strip a.cooperate-btn:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
     /* Footer */
@@ -462,9 +377,10 @@
         <span>通俗解释</span>
       </a>
       <nav class="site-nav">
-        <a href="#method">怎样工作</a>
-        <a href="#cooperate">商务合作</a>
+        <a href="#stance">立场</a>
+        <a href="#areas">关心的领域</a>
         <a href="articles.html">文章归档</a>
+        <a href="cooperate.html" class="highlight-nav">商务合作 ↗</a>
       </nav>
     </header>
 
@@ -480,7 +396,8 @@
           解释得简单些。
         </h1>
         <p class="hero-lead">
-          我们从一个真实的问题出发，探索科技、投资、商业，以及生活中那些值得真正弄明白的事情。
+          通俗的解释，是勾勒出事情的本质；<br>
+          <strong>真正的理解，是用「已知」连接「未知」。</strong>
         </p>
 
         <!-- Hand-drawn sketch annotation card -->
@@ -499,51 +416,72 @@
 
       <!-- Hand-drawn divider -->
       <svg class="sketch-divider" viewBox="0 0 1000 12" preserveAspectRatio="none">
+        <path d="M0,7 C200,3 400,10 600,6 C800,2 900,9 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
+      </svg>
+
+      <!-- Section 1: Stance -->
+      <section id="stance">
+        <div class="section-title">
+          <span>我们的立场</span>
+        </div>
+        <div class="stance-grid">
+          <div class="stance-card">
+            <span class="stance-badge badge-oppose">我们在反对什么</span>
+            <h3>拒绝用行业黑话制造高低差</h3>
+            <p>
+              反对把术语当作解释的终点，反对让人为了“不显外行”而假装听懂；反对把顺口的比喻当成本体，满足于好听却推不通因果。
+            </p>
+          </div>
+
+          <div class="stance-card">
+            <span class="stance-badge badge-deliver">我们在交付什么</span>
+            <h3>交出剥开外壳后的因果骨架</h3>
+            <p>
+              让普通人面对任何高深概念时，不再因为不懂而放弃判断；敢说“这里我没懂，请讲清楚”，能顺着逻辑自己推演、追问和验证。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hand-drawn divider -->
+      <svg class="sketch-divider" viewBox="0 0 1000 12" preserveAspectRatio="none">
         <path d="M0,6 C150,11 350,3 550,8 C750,11 880,4 1000,7" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <section id="method">
+      <!-- Section 2: Areas -->
+      <section id="areas">
         <div class="section-title">
-          <span>我们怎样工作</span>
+          <span>持续关心的领域 · 认知地图</span>
         </div>
-        <div class="method-box">
-          <div class="method-core">
-            <h3>真正的通俗，来自真正的理解。</h3>
+        <div class="areas-list">
+          <div class="area-card">
+            <div class="area-header">
+              <span class="area-tag">01</span>
+              <h3>硬科技与工程系统</h3>
+            </div>
             <p>
-              我们不只是把专业词换成简单词。我们先进入一个陌生领域，找到普通人真正困惑的地方，再重建一条更自然的理解路径。
+              芯片制造、底层架构、网络通信与大模型工程。穿透参数堆砌与营销神话，还原物理现实中真实的妥协、代价与技术边界。
             </p>
           </div>
-          <div class="steps-grid">
-            <div class="step-card">
-              <span class="step-num">01</span>
-              <div class="step-text">发现一个值得弄明白的问题</div>
+
+          <div class="area-card">
+            <div class="area-header">
+              <span class="area-tag">02</span>
+              <h3>金融与商业规则</h3>
             </div>
-            <div class="step-card">
-              <span class="step-num">02</span>
-              <div class="step-text">学习、求证，直到自己真正理解</div>
-            </div>
-            <div class="step-card">
-              <span class="step-num">03</span>
-              <div class="step-text">找到大众的认知障碍</div>
-            </div>
-            <div class="step-card">
-              <span class="step-num">04</span>
-              <div class="step-text">用故事、比喻与视觉重新表达</div>
-            </div>
+            <p>
+              衍生品机制、市场博弈、账本流转与制度设计。理顺错综复杂的利益网络，看清究竟是谁在制定游戏、谁在承担隐性成本。
+            </p>
           </div>
-          <div class="beliefs-list">
-            <div class="belief-item">
-              <strong>简单不是简化：</strong>
-              <span>删掉专业词不等于通俗，真正的简单来自理解结构被重新整理。</span>
+
+          <div class="area-card">
+            <div class="area-header">
+              <span class="area-tag">03</span>
+              <h3>现代复杂常识</h3>
             </div>
-            <div class="belief-item">
-              <strong>准确与有趣可以共存：</strong>
-              <span>好的解释既尊重客观事实，也尊重普通人的时间和注意力。</span>
-            </div>
-            <div class="belief-item">
-              <strong>用输出倒逼真正理解：</strong>
-              <span>对费曼学习法的持续实践——如果不能把事情解释给外行听，说明自己尚未吃透。</span>
-            </div>
+            <p>
+              日常生活与工业生产中，那些人人习以为常、却极少有人把底层闭环讲透的事物。拆解那些决定世界运转但被忽略的暗线。
+            </p>
           </div>
         </div>
       </section>
@@ -553,67 +491,24 @@
         <path d="M0,5 C250,9 450,2 650,8 C800,12 900,4 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <section id="cooperate">
-        <div class="section-title">
-          <span>商务合作</span>
+      <!-- Section 3: Channels & Archive -->
+      <section id="channels">
+        <div class="channels-bar">
+          <div class="channels-info">
+            <strong>全网搜索「通俗解释」</strong>
+            <p>B站 · 抖音 · 微信视频号持续更新视频作品</p>
+          </div>
+          <a href="articles.html" class="archive-button">浏览历史文章归档 (10 篇) →</a>
         </div>
-        <div class="cooperate-box">
-          <div class="problem-callout">
-            <h3>让好产品，被真正听懂。</h3>
-            <p>
-              很多企业的问题不是产品不好，而是消费者无法迅速理解：它为什么重要，又与自己有什么关系。<strong>专业的人讲得准确，普通的人却听不进去。</strong>
-            </p>
-          </div>
+      </section>
 
-          <div class="promise-strip">
-            <strong>每次定制内容都包含：我们会先帮你，把这件事想明白。</strong>
-            <p>
-              正式创作前，我们会听你介绍产品，阅读必要资料，站在普通人的角度找出最难理解的地方，再一起确认先讲什么、怎么讲，以及用什么例子和比喻更容易听懂。
-            </p>
-          </div>
-
-          <div class="process-timeline">
-            <div class="process-node">
-              <b>STEP 01</b>
-              <h4>告诉我们要讲什么</h4>
-              <p>发送产品资料、传播目标、时间要求与投放平台。</p>
-            </div>
-            <div class="process-node">
-              <b>STEP 02</b>
-              <h4>确认方案与报价</h4>
-              <p>我们评估选题与工作量，明确交付范围与合作排期。</p>
-            </div>
-            <div class="process-node">
-              <b>STEP 03</b>
-              <h4>理解产品，确定讲法</h4>
-              <p>找到大众理解障碍，确认切口、因果线索与讲解路径。</p>
-            </div>
-            <div class="process-node">
-              <b>STEP 04</b>
-              <h4>完成创作与交付</h4>
-              <p>完成深度脚本与白板视觉，经双方严格确认后交付发布。</p>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <h3>商业合作联络</h3>
-            <div class="contact-row">
-              <span class="contact-label">商务负责人</span>
-              <span class="contact-val">Emma</span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">商务微信</span>
-              <span class="contact-val">Emma_6940</span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">工作邮箱</span>
-              <span class="contact-val"><a href="mailto:mc@tongsujieshi.com">mc@tongsujieshi.com</a></span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">团队坐标</span>
-              <span class="contact-val">北京</span>
-            </div>
-          </div>
+      <!-- Section 4: Quiet Commercial Bridge -->
+      <section id="cooperate-bridge">
+        <div class="cooperate-strip">
+          <p>
+            如果你的团队拥有复杂而优秀的技术产品，希望被大众真正听懂：
+          </p>
+          <a href="cooperate.html" class="cooperate-btn">了解商务合作准则与联络 ↗</a>
         </div>
       </section>
     </main>
@@ -624,8 +519,8 @@
     </svg>
 
     <footer class="site-footer">
-      <div>&copy; 2026 通俗解释 · 保留所有权利。</div>
-      <div>全网搜索「通俗解释」：B站 · 抖音 · 视频号</div>
+      <div>&copy; 2026 通俗解释 · 保持好奇，勾勒本质。</div>
+      <div>保留所有权利</div>
     </footer>
   </div>
 </body>
