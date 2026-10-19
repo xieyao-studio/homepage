@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章归档 | XY · 通俗解释</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --tag-bg: #f3f4f6;
+      --tag-text: #374151;
+      --radius: 12px;
+      --max-w: 800px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #334155;
+        --accent: #38bdf8;
+        --tag-bg: #334155;
+        --tag-text: #e2e8f0;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    nav { margin-bottom: 32px; }
+    nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    header { margin-bottom: 40px; }
+    h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: var(--text-muted); font-size: 1.05rem; }
+    .post-list { display: flex; flex-direction: column; gap: 14px; }
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.15s ease;
+    }
+    .post-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .post-title { font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
+    .post-date { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; margin-left: 16px; }
+    footer {
+      margin-top: 64px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav><a href="index.html">← 返回首页</a></nav>
+    <header>
+      <h1>文章归档</h1>
+      <p class="subtitle">历史发表的科技深度科普、产业机制拆解与行业动态。</p>
+    </header>
+    <div class="post-list">
+            <a href="posts/声网：RTE步入“万亿分钟”时代，对话式AI开启RTE行业千亿级新蓝海.html" class="post-card">
+        <span class="post-title">声网：RTE步入“万亿分钟”时代，对话式AI开启RTE行业千亿级新蓝海</span>
+        <span class="post-date">2025-11-01</span>
+      </a>
+      <a href="posts/用AI重塑电商，京东零售发布电商创新AI架构体系Oxygen.html" class="post-card">
+        <span class="post-title">用AI重塑电商，京东零售发布电商创新AI架构体系Oxygen</span>
+        <span class="post-date">2025-09-25</span>
+      </a>
+      <a href="posts/人人都可定制Agent应用，阿里云百炼全面支持MCP服务部署与调用.html" class="post-card">
+        <span class="post-title">人人都可定制Agent应用，阿里云百炼全面支持MCP服务部署与调用</span>
+        <span class="post-date">2025-04-09</span>
+      </a>
+      <a href="posts/通俗解释：股市「龙虎榜」怎么来的？有啥用？.html" class="post-card">
+        <span class="post-title">通俗解释：股市「龙虎榜」怎么来的？有啥用？</span>
+        <span class="post-date">2025-02-16</span>
+      </a>
+      <a href="posts/通俗解释：雪球爆仓.html" class="post-card">
+        <span class="post-title">通俗解释：雪球爆仓</span>
+        <span class="post-date">2024-11-02</span>
+      </a>
+      <a href="posts/投影仪上的白点，和这颗被垄断的芯片有关.html" class="post-card">
+        <span class="post-title">投影仪上的白点，和这颗被垄断的芯片有关</span>
+        <span class="post-date">2024-11-02</span>
+      </a>
+      <a href="posts/延迟，会成为人类和AI实时通话的最大阻碍吗？.html" class="post-card">
+        <span class="post-title">延迟，会成为人类和AI实时通话的最大阻碍吗？</span>
+        <span class="post-date">2024-11-02</span>
+      </a>
+      <a href="posts/智谱AI推出AutoGLM智能体：输入指令即可模拟人类操作手机.html" class="post-card">
+        <span class="post-title">智谱AI推出AutoGLM智能体：输入指令即可模拟人类操作手机</span>
+        <span class="post-date">2024-10-29</span>
+      </a>
+      <a href="posts/多元开放-持续进化-新华三重磅发布多款智算新品.html" class="post-card">
+        <span class="post-title">多元开放 持续进化 新华三重磅发布多款智算新品</span>
+        <span class="post-date">2024-10-29</span>
+      </a>
+      <a href="posts/RTE2024：聚焦Gen-AI时代的RTE，声网发布RTE+AI能力全景图.html" class="post-card">
+        <span class="post-title">RTE2024：聚焦Gen AI时代的RTE，声网发布RTE+AI能力全景图</span>
+        <span class="post-date">2024-10-29</span>
+      </a>
+
+    </div>
+    <footer>
+      <p>&copy; 2026 XY · 通俗解释 · 保留所有权利</p>
+    </footer>
+  </div>
+</body>
+</html>

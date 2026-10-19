@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投影仪上的白点，和这颗被垄断的芯片有关 | XY · 通俗解释</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #f3f4f6;
+      --tag-text: #374151;
+      --max-w: 740px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #334155;
+        --accent: #38bdf8;
+        --accent-hover: #7dd3fc;
+        --tag-bg: #334155;
+        --tag-text: #e2e8f0;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    nav {
+      margin-bottom: 32px;
+      display: flex;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+    header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .content {
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+    .content p {
+      margin-bottom: 1.5em;
+    }
+    .content h2, .content h3, .content h4 {
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+      line-height: 1.4;
+    }
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5em 0;
+      display: block;
+      border: 1px solid var(--border);
+    }
+    .content figure {
+      margin: 1.5em 0;
+    }
+    .content blockquote {
+      border-left: 4px solid var(--accent);
+      padding: 8px 16px;
+      margin: 1.5em 0;
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
+      color: var(--text-muted);
+    }
+    .content ul, .content ol {
+      margin: 1em 0 1.5em 24px;
+    }
+    .content li {
+      margin-bottom: 0.5em;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="../index.html">← 返回首页</a>
+      <a href="../articles.html">全部文章</a>
+    </nav>
+    <header>
+      <h1>投影仪上的白点，和这颗被垄断的芯片有关</h1>
+      <div class="meta">发布日期：2024-11-02 · XY · 通俗解释</div>
+    </header>
+    <article class="content">
+      
+<p>最近我家投影仪的画面上方出现了一个莫名其妙的小白点：</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img src="../images/image-20.png" alt="" class="wp-image-132" style="width:840px;height:auto"/></figure>
+
+
+
+<p>虽然不怎么影响观看，但是注意力总是被吸引过去，简直要逼死强迫症啊！</p>
+
+
+
+<p>于是我就上网查，发现是一个叫DMD的芯片出了问题。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-21.png" alt="" class="wp-image-133"/></figure>
+
+
+
+<p>很多网友都反馈遇到过类似情况：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-22.png" alt="" class="wp-image-134"/></figure>
+
+
+
+<p>据说，一旦出现一个白点，就像这样：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-23.png" alt="" class="wp-image-135"/></figure>
+
+
+
+<p>之后就会越来越多：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-24.png" alt="" class="wp-image-136"/></figure>
+
+
+
+<p>直到占满整个屏幕，让人密集恐惧症当场发作，然后投影仪就基本可以下岗了。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-25.png" alt="" class="wp-image-137"/></figure>
+
+
+
+<p>不行就修一下吧，一问，不好意思，换DMD芯片一千二，我真是当场就跪了。</p>
+
+
+
+<p>我心想，你这芯片是金子做的吗？投影仪也就三千多，换个芯片就要一千二，正当他要建议我以旧换新，我转身就走了。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-26.png" alt="" class="wp-image-138"/></figure>
+
+
+
+<p>查了一下这个所谓的「DMD芯片」，全球能生产这种DMD芯片的居然只有「美国德州仪器」这一家公司，合着投影仪厂家也是在给这家公司打工啊？</p>
+
+
+
+<p>而且前两年媒体还报道过DMD芯片「卡脖子」的问题。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-27.png" alt="" class="wp-image-139"/></figure>
+
+
+
+<p>这么贵又这么重要，这个DMD芯片到底是干啥的？</p>
+
+
+
+<p>其实说起来也简单。</p>
+
+
+
+<p>你想象一下，有一个小人，举着一块镜子：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-28.png" alt="" class="wp-image-140"/></figure>
+
+
+
+<p>太阳发出的光通过镜子反射到墙上，<strong>小人可以通过控制镜子的倾斜角度，来控制墙上这个光斑的明暗度。</strong></p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-29.png" alt="" class="wp-image-141"/></figure>
+
+
+
+<p>好，现在有成千上万个这样的小人，站成整齐的矩阵，通过合理的指挥调度，他们就可以在墙上投射出一幅巨大的黑白画面——墙上的每一个光斑就是一个像素。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-30.png" alt="" class="wp-image-142"/></figure>
+
+
+
+<p>这就是目前比较主流的投影方案的基本原理了，国内最近几年卖得比较火的像什么极米啊坚果啊，大多数机型都是用的这种DLP方案。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-31.png" alt="" class="wp-image-143"/></figure>
+
+
+
+<p>这个太阳就是投影仪里的灯泡，这群举着镜子的人形成的矩阵，就是DMD芯片。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-32.png" alt="" class="wp-image-144"/></figure>
+
+
+
+<p>所以理论上，《三体》里的那个秦始皇完全可以让士兵们举镜子来给自己播放超大银幕电影。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-34.png" alt="" class="wp-image-146"/></figure>
+
+
+
+<p>只不过在真正的DMD芯片里，每一块镜子只有14平方微米，14微米是什么概念呢？头发丝的直径通常是50到100微米。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-35.png" alt="" class="wp-image-147"/></figure>
+
+
+
+<p>一个能播放4K高清影片的投影仪，DMD芯片上面需要有800多万个微镜片：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-36.png" alt="" class="wp-image-148"/></figure>
+
+
+
+<p>每一个镜片都用一个很小很小的微电机来控制倾斜角度：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-37.png" alt="" class="wp-image-149"/></figure>
+
+
+
+<p>也就是说，一块DMD芯片里有几十万甚至几百万个微电机，这需要非常精密的制造技术和精细的电子控制技术。</p>
+
+
+
+<p>这也是为什么全球只有德州仪器这一家公司能造DMD芯片，核心专利都在他们手里。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-38.png" alt="" class="wp-image-150"/></figure>
+
+
+
+<p>DMD芯片最怕也最常遇到的问题就是高温。</p>
+
+
+
+<p>如果高温把一个举镜子的「小人儿」给热坏了，就会出现一个小白点或者小黑点。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-39.png" alt="" class="wp-image-151"/></figure>
+
+
+
+<p>如果高温把一群「举镜子的小人儿」都热坏了，就会出现很多个一片小白点，就像这样：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-40.png" alt="" class="wp-image-152"/></figure>
+
+
+
+<p>所以为了让投影仪能多用几年，咱们在用的时候，投影仪周围尽量不要像这样放一堆东西：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-41.png" alt="" class="wp-image-153"/></figure>
+
+
+
+<p>也不要像这样贴到墙上，避免阻碍散热口周围的空气流通：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-42.png" alt="" class="wp-image-154"/></figure>
+
+
+
+<p>避免在高温环境下使用，北方的网友记得不要把它放在暖气片边上，夏天就无所谓了。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-43.png" alt="" class="wp-image-155"/></figure>
+
+
+
+<p>可以定期清理过滤网，我的办法是擦干净以后，用吹风机吹，再用吸尘器吸（风力不要太大），在不拆机的情况下效果非常不错，每次散热风扇呼呼大响的时候，我清理完就不响了：</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-44.png" alt="" class="wp-image-156"/></figure>
+
+
+
+<p>使用完以后也不要立刻断电，确保散热风扇已经把余热清理完，正式下班，再切断电源。</p>
+
+
+
+<p>但是即使你已经做到这些，DMD芯片还是有可能会过热。</p>
+
+
+
+<p>因为芯片上都贴一个硅脂垫片或者涂一些像牙膏一样的硅脂，帮助传导热量，把热量送出去。</p>
+
+
+
+<p>但由于长时间加热，两三年以后可能就会变干，导热性能下降。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-45.png" alt="" class="wp-image-157"/></figure>
+
+
+
+<p>所以条件允许的话，最好过个一两年感觉散热不太好了就找个师傅换一下硅脂垫片，做个保养什么的。</p>
+
+
+
+<p>不过一想到这么麻烦，我就觉得以后还是换个电视机得了。</p>
+
+
+
+<figure class="wp-block-image size-full"><img src="../images/image-46.png" alt="" class="wp-image-158"/></figure>
+
+
+
+<p>听说华为最近正在研发另外一种叫LCoS的投影方案，希望一方面能打破外国在投影芯片上的垄断；另一方面也把投影仪的价格打下来，或者把芯片质量提上去。</p>
+
+
+
+<p>毕竟，对消费者来说，投影仪能多用两年，也就相当于省钱了嘛~</p>
+
+    </article>
+    <footer>
+      <p>&copy; 2026 XY · 通俗解释 · 保留所有权利</p>
+    </footer>
+  </div>
+</body>
+</html>
