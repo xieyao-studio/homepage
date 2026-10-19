@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方法 | 通俗解释</title>
+  <meta name="description" content="通俗解释的创作方法与底层理念。解释不是把复杂东西说薄，而是为受众承担理解成本。">
+  <style>
+    :root {
+      --bg: #F2F0E9;
+      --card-bg: #FAF9F5;
+      --card-inner: #FFFFFF;
+      --ink: #1A1C18;
+      --ink-muted: #55594F;
+      --ink-light: #7E8277;
+      --line: rgba(26, 28, 24, 0.15);
+      --marker: rgba(230, 138, 0, 0.22);
+      --max-w: 740px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      padding: 48px 24px 120px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* Hand-drawn SVG lines */
+    .sketch-divider {
+      width: 100%;
+      height: 12px;
+      margin: 40px 0;
+      display: block;
+      overflow: visible;
+    }
+
+    /* Sketch Card Base */
+    .sketch-card {
+      position: relative;
+      background: transparent;
+      border-radius: 4px;
+      box-shadow: none;
+      transition: transform 0.2s ease;
+    }
+
+    .sketch-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sketch-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: visible;
+    }
+
+    .marker {
+      background: linear-gradient(104deg, rgba(230, 138, 0, 0) 0.5%, var(--marker) 2%, var(--marker) 95%, rgba(230, 138, 0, 0) 98%);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* Header & Nav */
+    header.page-header {
+      margin-bottom: 32px;
+    }
+
+    nav.back-nav {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    nav.back-nav a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--ink-muted);
+      padding-bottom: 2px;
+    }
+
+    nav.back-nav a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .kicker {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* Core Philosophy Box */
+    .philosophy-box {
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .philosophy-box h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .philosophy-box p {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Principles Grid */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .principles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .principle-card {
+      padding: 24px 28px;
+    }
+
+    .principle-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .principle-card p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* 4 Steps Grid */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .step-num {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .step-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Beliefs */
+    .beliefs-box {
+      padding: 26px 30px;
+      margin-bottom: 40px;
+    }
+
+    .beliefs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .belief-item {
+      display: flex;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .belief-item strong {
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    /* Bridge to Cooperation */
+    .bridge-strip {
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .bridge-strip p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    .bridge-strip a.cooperate-btn {
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <nav class="back-nav">
+        <a href="index.html">← 首页</a>
+        <a href="cooperate.html">商务合作 ↗</a>
+      </nav>
+      <span class="kicker">理念与手艺</span>
+      <h1>通俗解释的方法</h1>
+      <p class="lead">
+        解释不是把复杂的东西说薄，也不是替别人背下结论。<br>
+        我们的任务，是替受众承担理解成本，交付能被检验的因果骨架。
+      </p>
+    </header>
+
+    <main>
+      <div class="philosophy-box sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 1.2,1.8 C 25,1.1 75,2.4 98.6,1.4 C 99.2,30 98.1,70 98.6,98.6 C 75,98.9 25,97.8 1.2,98.6 C 0.9,70 1.6,30 1.2,1.8 Z" stroke="#1A1C18" stroke-width="1.8" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+        </svg>
+        <h2>真正的理解，是用已知连接未知。</h2>
+        <p>
+          一个陌生概念如果孤零零落进脑海，人只能记住名字或复述定义。真正的通俗解释，是将未知的事物拆开，找到它与大众生活经验、常识和已懂机制相交汇的那根连接线。
+        </p>
+      </div>
+
+      <div class="section-title">手艺准则</div>
+      <div class="principles-list">
+        <div class="principle-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 1.8,2.2 C 30,1.2 70,3 98,2 C 98.6,32 97.4,68 98,98 C 68,98.6 30,97.2 2,97.8 C 1.2,68 2.4,30 1.8,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <h3>规避「知识的诅咒」，从对方的真实起点出发</h3>
+          <p>
+            专业人士最容易犯的错误，是用自己的已知去预设别人的理解。我们不默认观众懂任何行业黑话，每次创作都退回到未经污染的常识起点，看清人们会在哪一步卡住或误解，再给出踩得稳的因果台阶。
+          </p>
+        </div>
+
+        <div class="principle-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 2.4,2 C 32,2.8 68,1.6 97.8,2.4 C 98.4,32 97.6,68 98,97.6 C 68,97 32,98.2 2,97.4 C 2.6,68 1.6,32 2.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <h3>重构因果骨架：简单不是削薄，而是让人能推演</h3>
+          <p>
+            通俗不是低幼化，更不是为了好听而编造脱离机制的比喻。真正的理解来自结构的重新整理——把复杂的参数剥开，交付能被检验的因果骨架，让没有专业背景的人也能跟着逻辑独立推演、提出质疑、完成检查。
+          </p>
+        </div>
+
+        <div class="principle-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 1.5,2.4 C 35,1.5 68,3 98.4,2 C 99,35 98.2,70 98.5,98 C 65,98.6 32,97.5 1.5,97.8 C 1.2,65 2.2,30 1.5,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <h3>真实是最大的说服力</h3>
+          <p>
+            不配合排他夸张，不把比喻当成本体，更不替未经核实的说辞背书。经得起反复推敲的客观因果，比任何修辞口号都更有力量。
+          </p>
+        </div>
+      </div>
+
+      <div class="section-title">创作流程</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h4>发现值得弄明白的问题</h4>
+          <p>穿透表面结论，切中受众真正关心的认知缺口。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h4>深挖求证直到自己吃透</h4>
+          <p>研读技术白皮书与底层机制，先做到自己能推演。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h4>寻找大众理解障碍</h4>
+          <p>退回外行视角，找到人们在第几步会产生误解。</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">04</span>
+          <h4>用视觉与因果重新表达</h4>
+          <p>白板分步展开，让抽象的权利与机制显形。</p>
+        </div>
+      </div>
+
+      <div class="beliefs-box sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 2,2 C 28,3.2 72,1.8 98,2.6 C 97.5,28 98.4,72 98,97.8 C 72,97.4 28,98.5 2,97.4 C 2.5,72 1.6,28 2,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+        </svg>
+        <div class="beliefs-list">
+          <div class="belief-item">
+            <strong>简单不是简化：</strong>
+            <span>删掉专业词不等于通俗，真正的简单来自理解结构被重新整理。</span>
+          </div>
+          <div class="belief-item">
+            <strong>准确与有趣可以共存：</strong>
+            <span>好的解释既尊重客观事实，也尊重普通人的时间和注意力。</span>
+          </div>
+          <div class="belief-item">
+            <strong>用输出倒逼真正理解：</strong>
+            <span>对费曼学习法的实践——如果不能把事情解释给外行听，说明自己尚未吃透。</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Bridge -->
+      <div class="bridge-strip sketch-card">
+        <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 1.5,2 C 30,1.2 70,2.6 98.5,1.8 C 99,35 98,65 98.5,98 C 65,98.8 30,97.4 1.5,98 C 1,65 2,35 1.5,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+        </svg>
+        <p>围绕硬核科技与商业产品，我们提供从深度理解到大众表达的商业内容合作。</p>
+        <a href="cooperate.html" class="cooperate-btn">了解商务合作方式与联络 ↗</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 通俗解释 · 保持好奇，勾勒本质。</p>
+    </footer>
+  </div>
+</body>
+</html>
