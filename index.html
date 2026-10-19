@@ -148,18 +148,18 @@
       margin-bottom: 20px;
     }
 
-    /* Whiteboard Visual Diagram (Video Style) */
+    /* Whiteboard Stage */
     .whiteboard-stage {
       padding: 32px 36px;
       margin: 28px 0;
     }
 
     .whiteboard-statement {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      line-height: 1.85;
+      line-height: 1.9;
       color: var(--ink);
-      margin-bottom: 32px;
+      margin-bottom: 0;
     }
 
     .whiteboard-statement p {
@@ -168,63 +168,6 @@
 
     .whiteboard-statement p:last-child {
       margin-bottom: 0;
-    }
-
-    /* Diagram Nodes: Level, Independent Hand-drawn Outlines */
-    .diagram-track {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 16px;
-      padding-top: 12px;
-    }
-
-    @media (max-width: 600px) {
-      .diagram-track {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        text-align: center;
-      }
-    }
-
-    .diagram-node {
-      background: var(--card-inner);
-      padding: 18px 20px;
-    }
-
-    .diagram-node b {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .diagram-node p {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    .diagram-arrow-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 4px;
-    }
-
-    .diagram-arrow-text {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--ink-muted);
-      white-space: nowrap;
-      margin-bottom: 2px;
-    }
-
-    .diagram-arrow-svg {
-      width: 80px;
-      height: 20px;
     }
 
     /* Sections */
@@ -409,8 +352,8 @@
         <span>通俗解释</span>
       </a>
       <nav class="site-nav">
-        <a href="#stance">立场</a>
-        <a href="#areas">关心的领域</a>
+        <a href="#cognition">我们的认知</a>
+        <a href="#areas">关注领域</a>
         <a href="#channels">关注我们</a>
         <a href="cooperate.html" class="highlight-nav">商务合作 ↗</a>
       </nav>
@@ -428,7 +371,7 @@
           解释得简单些。
         </h1>
 
-        <!-- Video-style Whiteboard Stage -->
+        <!-- Whiteboard Stage -->
         <div class="whiteboard-stage sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 1.2,1.8 C 25,1.1 75,2.4 98.6,1.4 C 99.2,30 98.1,70 98.6,98.6 C 75,98.9 25,97.8 1.2,98.6 C 0.9,70 1.6,30 1.2,1.8 Z" stroke="#1A1C18" stroke-width="1.8" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
@@ -436,37 +379,7 @@
 
           <div class="whiteboard-statement">
             <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
-            <p>真正的理解，是用<span class="marker">「已知」</span>连接<span class="marker">「未知」</span>。</p>
-          </div>
-
-          <!-- Video Style Diagram: Known -> Bridge -> Unknown -->
-          <div class="diagram-track">
-            <!-- Left Box: Known -->
-            <div class="diagram-node sketch-card">
-              <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M 2,2.4 C 35,1.4 68,3.2 98,2 C 98.5,35 97.4,72 98,97.8 C 65,98.6 32,97.2 2,98 C 1.4,65 2.5,32 2,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FFFFFF"/>
-              </svg>
-              <b>「已知」</b>
-              <p>大众已有生活经验、真实处境与常识</p>
-            </div>
-
-            <!-- Hand-drawn Arrow Bridge -->
-            <div class="diagram-arrow-wrap">
-              <span class="diagram-arrow-text">因果连接</span>
-              <svg class="diagram-arrow-svg" viewBox="0 0 80 18" fill="none">
-                <path d="M4,9 C26,5 50,13 72,9" stroke="#1A1C18" stroke-width="2" stroke-linecap="round"/>
-                <path d="M64,3 L74,9 L64,15" stroke="#1A1C18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-
-            <!-- Right Box: Unknown (Completely different independent curves, zero mirror) -->
-            <div class="diagram-node sketch-card">
-              <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M 2.2,2 C 28,3.2 72,1.6 98,2.6 C 97.4,28 98.4,72 97.8,97.8 C 72,97.2 28,98.4 2,97.4 C 2.6,72 1.6,28 2.2,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FFFFFF"/>
-              </svg>
-              <b>「未知」</b>
-              <p>硬核系统、物理机制与产业底层真相</p>
-            </div>
+            <p>真正的理解，是用<span class="marker">已知</span>连接<span class="marker">未知</span>。</p>
           </div>
         </div>
       </section>
@@ -476,20 +389,20 @@
         <path d="M0,7 C200,3 400,10 600,6 C800,2 900,9 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <!-- Section 1: Stance -->
-      <section id="stance">
+      <!-- Section 1: Cognition & Methodology -->
+      <section id="cognition">
         <div class="section-title">
-          <span>我们的立场</span>
+          <span>我们的认知</span>
         </div>
         <div class="stance-grid">
           <div class="stance-card sketch-card">
             <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path d="M 1.8,2.2 C 30,1.2 70,3 98,2 C 98.6,32 97.4,68 98,98 C 68,98.6 30,97.2 2,97.8 C 1.2,68 2.4,30 1.8,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
             </svg>
-            <span class="stance-label">我们在反对什么</span>
-            <h3>拒绝用行业黑话制造高低差</h3>
+            <span class="stance-label">认知 01</span>
+            <h3>规避「知识的诅咒」，从对方的真实起点出发</h3>
             <p>
-              反对把术语当作解释的终点，反对让人为了“不显外行”而假装听懂；反对把顺口的比喻当成本体，满足于好听却推不通因果。
+              专业人士最容易犯的错误，是用自己已知的背景替对方脑补意思。我们不默认观众已知任何行业黑话，每次创作都退回到未经污染的认知起点，看清人们会在哪一步卡住或误解，再给出踩得稳的因果台阶。
             </p>
           </div>
 
@@ -497,10 +410,10 @@
             <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
               <path d="M 2.4,2 C 32,2.8 68,1.6 97.8,2.4 C 98.4,32 97.6,68 98,97.6 C 68,97 32,98.2 2,97.4 C 2.6,68 1.6,32 2.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
             </svg>
-            <span class="stance-label">我们在交付什么</span>
-            <h3>交出剥开外壳后的因果骨架</h3>
+            <span class="stance-label">认知 02</span>
+            <h3>重构因果骨架：简单不是削薄，而是让人能推演</h3>
             <p>
-              让普通人面对任何概念时，不再因为不懂而放弃判断；敢说“这里我没懂，请讲清楚”，能顺着逻辑自己推演、追问和验证。
+              通俗不是低幼化，更不是为了好听而编造脱离机制的比喻。真正的理解不是记住一堆名词，而是把复杂的参数剥开，交付能被检验的因果骨架——让没有专业背景的人也能跟着逻辑独立推演、提出质疑、完成检查。
             </p>
           </div>
         </div>
