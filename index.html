@@ -43,15 +43,39 @@
       overflow: visible;
     }
 
-    /* Unified Hand-drawn Border System */
+    /* Unified Hand-drawn Border Base */
     .sketch-border {
       background: var(--card-bg);
       border: 1.5px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       box-shadow: 3px 3px 0 var(--line);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Marker Pen Highlight (Video Style) */
+    /* Distinct Curvature & Rotation Variants */
+    /* Variant 1: subtle left lean, asymmetric top-left / bottom-right */
+    .variant-1 {
+      border-radius: 255px 16px 225px 14px / 14px 230px 16px 250px;
+      transform: rotate(-0.35deg);
+    }
+
+    /* Variant 2: subtle right lean, inverted curvature */
+    .variant-2 {
+      border-radius: 16px 245px 15px 235px / 235px 14px 245px 16px;
+      transform: rotate(0.35deg);
+    }
+
+    /* Variant 3: softer organic wave, gentle negative tilt */
+    .variant-3 {
+      border-radius: 240px 22px 235px 18px / 18px 235px 15px 240px;
+      transform: rotate(-0.18deg);
+    }
+
+    .sketch-border:hover {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 4px 5px 0 var(--line);
+    }
+
+    /* Marker Pen Highlight */
     .marker {
       background: linear-gradient(104deg, rgba(230, 138, 0, 0) 0.5%, var(--marker) 2%, var(--marker) 95%, rgba(230, 138, 0, 0) 98%);
       padding: 2px 6px;
@@ -133,6 +157,8 @@
     .whiteboard-stage {
       padding: 32px 36px;
       margin: 28px 0;
+      border-radius: 285px 18px 270px 15px / 16px 270px 18px 285px;
+      transform: rotate(-0.25deg);
     }
 
     .whiteboard-statement {
@@ -151,7 +177,7 @@
       margin-bottom: 0;
     }
 
-    /* Interactive Diagram: Known -> Bridge -> Unknown */
+    /* Diagram Nodes: Left and Right Asymmetric Pairs */
     .diagram-track {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -171,8 +197,18 @@
     .diagram-node {
       background: var(--card-inner);
       border: 1.5px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       padding: 18px 20px;
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .diagram-node.node-known {
+      border-radius: 250px 16px 230px 14px / 15px 235px 16px 245px;
+      transform: rotate(-0.5deg);
+    }
+
+    .diagram-node.node-unknown {
+      border-radius: 16px 240px 14px 230px / 230px 15px 240px 18px;
+      transform: rotate(0.5deg);
     }
 
     .diagram-node b {
@@ -221,7 +257,7 @@
       margin-bottom: 20px;
     }
 
-    /* Stance Section: Oppose vs Deliver */
+    /* Stance Section */
     .stance-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -268,11 +304,6 @@
 
     .area-card {
       padding: 22px 26px;
-      transition: transform 0.15s ease;
-    }
-
-    .area-card:hover {
-      transform: translateY(-1px);
     }
 
     .area-header {
@@ -307,6 +338,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      border-radius: 280px 20px 275px 16px / 16px 285px 18px 270px;
+      transform: rotate(0.2deg);
     }
 
     .channels-info strong {
@@ -347,6 +380,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      border-radius: 18px 275px 15px 265px / 265px 16px 270px 18px;
+      transform: rotate(-0.25deg);
     }
 
     .cooperate-strip p {
@@ -410,16 +445,16 @@
           解释得简单些。
         </h1>
 
-        <!-- Video-style Whiteboard Stage -->
+        <!-- Video-style Whiteboard Stage (Wide organic box) -->
         <div class="whiteboard-stage sketch-border">
           <div class="whiteboard-statement">
             <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
             <p>真正的理解，是用<span class="marker">「已知」</span>连接<span class="marker">「未知」</span>。</p>
           </div>
 
-          <!-- Video Style Diagram: Known -> Bridge -> Unknown -->
+          <!-- Video Style Diagram: Known (Variant A) -> Bridge -> Unknown (Variant B) -->
           <div class="diagram-track">
-            <div class="diagram-node">
+            <div class="diagram-node node-known">
               <b>「已知」</b>
               <p>大众已有生活经验、真实处境与常识</p>
             </div>
@@ -432,7 +467,7 @@
               </svg>
             </div>
 
-            <div class="diagram-node">
+            <div class="diagram-node node-unknown">
               <b>「未知」</b>
               <p>硬核系统、物理机制与产业底层真相</p>
             </div>
@@ -445,13 +480,13 @@
         <path d="M0,7 C200,3 400,10 600,6 C800,2 900,9 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <!-- Section 1: Stance -->
+      <!-- Section 1: Stance (Two contrasting organic variants) -->
       <section id="stance">
         <div class="section-title">
           <span>我们的立场</span>
         </div>
         <div class="stance-grid">
-          <div class="stance-card sketch-border">
+          <div class="stance-card sketch-border variant-1">
             <span class="stance-label">我们在反对什么</span>
             <h3>拒绝用行业黑话制造高低差</h3>
             <p>
@@ -459,7 +494,7 @@
             </p>
           </div>
 
-          <div class="stance-card sketch-border">
+          <div class="stance-card sketch-border variant-2">
             <span class="stance-label">我们在交付什么</span>
             <h3>交出剥开外壳后的因果骨架</h3>
             <p>
@@ -474,13 +509,13 @@
         <path d="M0,6 C150,11 350,3 550,8 C750,11 880,4 1000,7" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <!-- Section 2: Areas -->
+      <!-- Section 2: Areas (Three distinct organic variants 1, 2, 3) -->
       <section id="areas">
         <div class="section-title">
           <span>持续关心的领域 · 认知地图</span>
         </div>
         <div class="areas-list">
-          <div class="area-card sketch-border">
+          <div class="area-card sketch-border variant-1">
             <div class="area-header">
               <span class="area-num">01</span>
               <h3>硬科技与工程系统</h3>
@@ -490,7 +525,7 @@
             </p>
           </div>
 
-          <div class="area-card sketch-border">
+          <div class="area-card sketch-border variant-2">
             <div class="area-header">
               <span class="area-num">02</span>
               <h3>金融与商业规则</h3>
@@ -500,7 +535,7 @@
             </p>
           </div>
 
-          <div class="area-card sketch-border">
+          <div class="area-card sketch-border variant-3">
             <div class="area-header">
               <span class="area-num">03</span>
               <h3>现代复杂常识</h3>
