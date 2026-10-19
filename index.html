@@ -43,30 +43,27 @@
       overflow: visible;
     }
 
-    /* Unified Hand-drawn Border Base (Completely Level, Zero Tilt) */
-    .sketch-border {
+    /* Sketch Card Base (Strictly level, with SVG outline overlay) */
+    .sketch-card {
+      position: relative;
       background: var(--card-bg);
-      border: 1.5px solid var(--ink);
+      border-radius: 4px;
       box-shadow: 2px 3px 0 var(--line);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
-    /* Distinct Curvature Variants (No rotation, purely organic line curvature) */
-    .variant-1 {
-      border-radius: 255px 16px 225px 14px / 14px 230px 16px 250px;
-    }
-
-    .variant-2 {
-      border-radius: 16px 245px 15px 235px / 235px 14px 245px 16px;
-    }
-
-    .variant-3 {
-      border-radius: 240px 22px 235px 18px / 18px 235px 15px 240px;
-    }
-
-    .sketch-border:hover {
+    .sketch-card:hover {
       transform: translateY(-2px);
       box-shadow: 3px 5px 0 var(--line);
+    }
+
+    .sketch-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
     }
 
     /* Marker Pen Highlight */
@@ -150,7 +147,6 @@
     .whiteboard-stage {
       padding: 32px 36px;
       margin: 28px 0;
-      border-radius: 285px 18px 270px 15px / 16px 270px 18px 285px;
     }
 
     .whiteboard-statement {
@@ -169,7 +165,7 @@
       margin-bottom: 0;
     }
 
-    /* Diagram Nodes: Left and Right Asymmetric Pairs */
+    /* Diagram Nodes: Level, Independent Hand-drawn Outlines */
     .diagram-track {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -188,17 +184,7 @@
 
     .diagram-node {
       background: var(--card-inner);
-      border: 1.5px solid var(--ink);
       padding: 18px 20px;
-      box-shadow: 2px 2px 0 var(--line);
-    }
-
-    .diagram-node.node-known {
-      border-radius: 250px 16px 230px 14px / 15px 235px 16px 245px;
-    }
-
-    .diagram-node.node-unknown {
-      border-radius: 16px 240px 14px 230px / 230px 15px 240px 18px;
     }
 
     .diagram-node b {
@@ -212,6 +198,7 @@
       font-size: 0.85rem;
       color: var(--ink-muted);
       line-height: 1.5;
+      margin: 0;
     }
 
     .diagram-arrow-wrap {
@@ -283,6 +270,7 @@
       font-size: 0.92rem;
       color: var(--ink-muted);
       line-height: 1.7;
+      margin: 0;
     }
 
     /* Focus Areas */
@@ -312,12 +300,14 @@
     .area-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
+      margin: 0;
     }
 
     .area-card p {
       font-size: 0.93rem;
       color: var(--ink-muted);
       line-height: 1.7;
+      margin: 0;
     }
 
     /* Platforms Grid */
@@ -370,7 +360,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      border-radius: 18px 275px 15px 265px / 265px 16px 270px 18px;
     }
 
     .cooperate-strip p {
@@ -434,20 +423,29 @@
           解释得简单些。
         </h1>
 
-        <!-- Video-style Whiteboard Stage (Wide organic box) -->
-        <div class="whiteboard-stage sketch-border">
+        <!-- Video-style Whiteboard Stage -->
+        <div class="whiteboard-stage sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 1.2,1.8 C 25,1.1 75,2.4 98.6,1.4 C 99.2,30 98.1,70 98.6,98.6 C 75,98.9 25,97.8 1.2,98.6 C 0.9,70 1.6,30 1.2,1.8 Z" stroke="#1A1C18" stroke-width="1.8" vector-effect="non-scaling-stroke" fill="none"/>
+          </svg>
+
           <div class="whiteboard-statement">
             <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
             <p>真正的理解，是用<span class="marker">「已知」</span>连接<span class="marker">「未知」</span>。</p>
           </div>
 
-          <!-- Video Style Diagram: Known (Variant A) -> Bridge -> Unknown (Variant B) -->
+          <!-- Video Style Diagram: Known -> Bridge -> Unknown -->
           <div class="diagram-track">
-            <div class="diagram-node node-known">
+            <!-- Left Box: Known -->
+            <div class="diagram-node sketch-card">
+              <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M 2,2.4 C 35,1.4 68,3.2 98,2 C 98.5,35 97.4,72 98,97.8 C 65,98.6 32,97.2 2,98 C 1.4,65 2.5,32 2,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+              </svg>
               <b>「已知」</b>
               <p>大众已有生活经验、真实处境与常识</p>
             </div>
 
+            <!-- Hand-drawn Arrow Bridge -->
             <div class="diagram-arrow-wrap">
               <span class="diagram-arrow-text">因果连接</span>
               <svg class="diagram-arrow-svg" viewBox="0 0 80 18" fill="none">
@@ -456,7 +454,11 @@
               </svg>
             </div>
 
-            <div class="diagram-node node-unknown">
+            <!-- Right Box: Unknown (Completely different independent curves, zero mirror) -->
+            <div class="diagram-node sketch-card">
+              <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M 2.2,2 C 28,3.2 72,1.6 98,2.6 C 97.4,28 98.4,72 97.8,97.8 C 72,97.2 28,98.4 2,97.4 C 2.6,72 1.6,28 2.2,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+              </svg>
               <b>「未知」</b>
               <p>硬核系统、物理机制与产业底层真相</p>
             </div>
@@ -469,13 +471,16 @@
         <path d="M0,7 C200,3 400,10 600,6 C800,2 900,9 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <!-- Section 1: Stance (Two contrasting organic variants) -->
+      <!-- Section 1: Stance -->
       <section id="stance">
         <div class="section-title">
           <span>我们的立场</span>
         </div>
         <div class="stance-grid">
-          <div class="stance-card sketch-border variant-1">
+          <div class="stance-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 1.8,2.2 C 30,1.2 70,3 98,2 C 98.6,32 97.4,68 98,98 C 68,98.6 30,97.2 2,97.8 C 1.2,68 2.4,30 1.8,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <span class="stance-label">我们在反对什么</span>
             <h3>拒绝用行业黑话制造高低差</h3>
             <p>
@@ -483,7 +488,10 @@
             </p>
           </div>
 
-          <div class="stance-card sketch-border variant-2">
+          <div class="stance-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2.4,2 C 32,2.8 68,1.6 97.8,2.4 C 98.4,32 97.6,68 98,97.6 C 68,97 32,98.2 2,97.4 C 2.6,68 1.6,32 2.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <span class="stance-label">我们在交付什么</span>
             <h3>交出剥开外壳后的因果骨架</h3>
             <p>
@@ -498,13 +506,16 @@
         <path d="M0,6 C150,11 350,3 550,8 C750,11 880,4 1000,7" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
 
-      <!-- Section 2: Areas (Three distinct organic variants 1, 2, 3) -->
+      <!-- Section 2: Areas -->
       <section id="areas">
         <div class="section-title">
           <span>持续关心的领域 · 认知地图</span>
         </div>
         <div class="areas-list">
-          <div class="area-card sketch-border variant-1">
+          <div class="area-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 1.5,2.4 C 35,1.5 68,3 98.4,2 C 99,35 98.2,70 98.5,98 C 65,98.6 32,97.5 1.5,97.8 C 1.2,65 2.2,30 1.5,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <div class="area-header">
               <span class="area-num">01</span>
               <h3>硬科技与工程系统</h3>
@@ -514,7 +525,10 @@
             </p>
           </div>
 
-          <div class="area-card sketch-border variant-2">
+          <div class="area-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2,2 C 28,3.2 72,1.8 98,2.6 C 97.5,28 98.4,72 98,97.8 C 72,97.4 28,98.5 2,97.4 C 2.5,72 1.6,28 2,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <div class="area-header">
               <span class="area-num">02</span>
               <h3>金融与商业规则</h3>
@@ -524,7 +538,10 @@
             </p>
           </div>
 
-          <div class="area-card sketch-border variant-3">
+          <div class="area-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2.2,2.4 C 35,2.8 65,1.6 98,2.4 C 98.5,35 97.4,68 98,97.8 C 68,97.2 32,98.4 2,97.6 C 1.5,68 2.8,32 2.2,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <div class="area-header">
               <span class="area-num">03</span>
               <h3>现代复杂常识</h3>
@@ -548,7 +565,10 @@
         </div>
         <div class="platforms-grid">
           <!-- Bilibili -->
-          <a href="https://space.bilibili.com/1532444879" target="_blank" rel="noopener" class="platform-card sketch-border variant-1">
+          <a href="https://space.bilibili.com/1532444879" target="_blank" rel="noopener" class="platform-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2,2.5 C 30,1.4 70,3 98,2 C 98.5,35 97.5,70 98,97.8 C 68,98.5 30,97.2 2,98 C 1.4,65 2.6,30 2,2.5 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <svg class="hand-icon" viewBox="0 0 48 48" fill="none">
               <path d="M16 11 L10 5 M32 11 L38 5" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M7 13 C5 13 4 15 4 18 L4 38 C4 41 5 43 8 43 L40 43 C43 43 44 41 44 38 L44 18 C44 15 43 13 40 13 Z" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -561,7 +581,10 @@
           </a>
 
           <!-- Douyin -->
-          <a href="https://www.douyin.com/search/%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener" class="platform-card sketch-border variant-2">
+          <a href="https://www.douyin.com/search/%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener" class="platform-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2.2,2 C 28,3.2 72,1.6 98,2.6 C 97.4,28 98.4,72 97.8,97.8 C 72,97.2 28,98.4 2,97.4 C 2.6,72 1.6,28 2.2,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <svg class="hand-icon" viewBox="0 0 48 48" fill="none">
               <path d="M26 7 L26 31 C26 36 22 40 17 40 C12 40 9 36 9 31 C9 26 13 22 18 22 C19.5 22 21 22.5 22 23.5 L22 7 L32 7 C32 12 36 15 41 15 L41 20 C36 20 32 17.5 29 14.5 L26 14.5 Z" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -570,7 +593,10 @@
           </a>
 
           <!-- WeChat Channels (视频号) -->
-          <a href="https://weixin.qq.com" target="_blank" rel="noopener" class="platform-card sketch-border variant-3">
+          <a href="https://weixin.qq.com" target="_blank" rel="noopener" class="platform-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2,2.4 C 35,1.5 68,3 98,2 C 98.6,35 97.4,70 98,97.6 C 68,98.4 30,97.2 2,97.8 C 1.2,68 2.5,30 2,2.4 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <svg class="hand-icon" viewBox="0 0 48 48" fill="none">
               <path d="M7 13 C6 13 5 14 5 16 L5 32 C5 34 6 35 8 35 L28 35 C30 35 31 34 31 32 L31 16 C31 14 30 13 28 13 Z" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M31 20 L41 15 L41 33 L31 28 Z" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -581,7 +607,10 @@
           </a>
 
           <!-- Xiaohongshu (小红书) -->
-          <a href="https://www.xiaohongshu.com/search_result?keyword=%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener" class="platform-card sketch-border variant-1">
+          <a href="https://www.xiaohongshu.com/search_result?keyword=%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener" class="platform-card sketch-card">
+            <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 2.4,2 C 32,2.8 68,1.6 97.8,2.4 C 98.4,32 97.6,68 98,97.6 C 68,97 32,98.2 2,97.4 C 2.6,68 1.6,32 2.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
             <svg class="hand-icon" viewBox="0 0 48 48" fill="none">
               <path d="M11 9 C9 9 8 11 8 13 L8 37 C8 39 10 40 12 40 L36 40 C38 40 40 39 40 37 L40 13 C40 11 39 9 37 9 Z" stroke="#1A1C18" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M15 17 L33 17 M15 24 L27 24 M15 31 L29 31" stroke="#1A1C18" stroke-width="2" stroke-linecap="round"/>
@@ -595,7 +624,10 @@
 
       <!-- Section 4: Quiet Commercial Bridge -->
       <section id="cooperate-bridge">
-        <div class="cooperate-strip sketch-border">
+        <div class="cooperate-strip sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 1.5,2 C 30,1.2 70,2.6 98.5,1.8 C 99,35 98,65 98.5,98 C 65,98.8 30,97.4 1.5,98 C 1,65 2,35 1.5,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="none"/>
+          </svg>
           <p>
             如果你的团队拥有复杂而优秀的技术产品，希望被大众真正听懂：
           </p>
