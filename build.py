@@ -16,8 +16,8 @@ article_template = """<!DOCTYPE html>
   <title>{title} | 通俗解释</title>
   <style>
     :root {{
-      --bg: #fcfbf9;
-      --card-bg: #ffffff;
+      --bg: #F2F0E9;
+      --card-bg: #FAF9F5;
       --text: #1a1a1a;
       --text-muted: #666666;
       --text-light: #8c8c8c;
@@ -149,8 +149,8 @@ articles_index_template = """<!DOCTYPE html>
   <title>文章归档 | 通俗解释</title>
   <style>
     :root {{
-      --bg: #fcfbf9;
-      --card-bg: #ffffff;
+      --bg: #F2F0E9;
+      --card-bg: #FAF9F5;
       --text: #1a1a1a;
       --text-muted: #666666;
       --text-light: #8c8c8c;
