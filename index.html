@@ -152,31 +152,37 @@
 
     .whiteboard-wrap {
       position: relative;
-      margin: 28px 0;
+      margin: 48px 0 28px;
     }
 
     .hero-mascot {
       position: absolute;
-      right: 32px;
-      bottom: calc(100% - 4px);
-      height: 135px;
+      right: 48px;
+      top: -88px;
+      height: 195px;
       width: auto;
       object-fit: contain;
-      z-index: 2;
+      z-index: 0;
       pointer-events: none;
       user-select: none;
       -webkit-user-drag: none;
     }
 
     @media (max-width: 600px) {
+      .whiteboard-wrap {
+        margin: 36px 0 24px;
+      }
       .hero-mascot {
-        height: 100px;
-        right: 16px;
+        height: 145px;
+        top: -65px;
+        right: 24px;
       }
     }
 
     /* Whiteboard Stage */
     .whiteboard-stage {
+      position: relative;
+      z-index: 1;
       padding: 32px 36px;
       margin: 0;
     }
