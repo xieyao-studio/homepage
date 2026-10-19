@@ -13,10 +13,8 @@
       --ink: #1A1C18;
       --ink-muted: #55594F;
       --ink-light: #7E8277;
-      --line: rgba(26, 28, 24, 0.18);
-      --line-strong: rgba(26, 28, 24, 0.4);
-      --accent: #E68A00;
-      --accent-soft: rgba(230, 138, 0, 0.12);
+      --line: rgba(26, 28, 24, 0.15);
+      --marker: rgba(230, 138, 0, 0.22);
       --max-w: 740px;
     }
 
@@ -36,13 +34,29 @@
       margin: 0 auto;
     }
 
-    /* Hand-drawn SVG lines */
+    /* Hand-drawn SVG Divider */
     .sketch-divider {
       width: 100%;
       height: 12px;
       margin: 48px 0;
       display: block;
       overflow: visible;
+    }
+
+    /* Unified Hand-drawn Border System */
+    .sketch-border {
+      background: var(--card-bg);
+      border: 1.5px solid var(--ink);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      box-shadow: 3px 3px 0 var(--line);
+    }
+
+    /* Marker Pen Highlight (Video Style) */
+    .marker {
+      background: linear-gradient(104deg, rgba(230, 138, 0, 0) 0.5%, var(--marker) 2%, var(--marker) 95%, rgba(230, 138, 0, 0) 98%);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 600;
     }
 
     /* Header */
@@ -67,7 +81,7 @@
     .brand-mark {
       width: 36px;
       height: 36px;
-      border: 2px solid var(--ink);
+      border: 1.8px solid var(--ink);
       border-radius: 48% 52% 46% 54% / 53% 47% 55% 45%;
       display: grid;
       place-items: center;
@@ -98,13 +112,13 @@
     nav.site-nav a.highlight-nav {
       color: var(--ink);
       font-weight: 700;
-      border-bottom: 1px dotted var(--ink);
+      border-bottom: 1.5px solid var(--ink);
       padding-bottom: 2px;
     }
 
     /* Hero */
     .hero {
-      padding: 24px 0 16px;
+      padding: 16px 0 8px;
     }
 
     .hero h1 {
@@ -112,64 +126,92 @@
       font-weight: 800;
       line-height: 1.25;
       letter-spacing: -0.025em;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    .hero-lead {
-      font-size: 1.15rem;
-      color: var(--ink-muted);
+    /* Whiteboard Visual Diagram (Video Style) */
+    .whiteboard-stage {
+      padding: 32px 36px;
+      margin: 28px 0;
+    }
+
+    .whiteboard-statement {
+      font-size: 1.2rem;
+      font-weight: 700;
       line-height: 1.85;
+      color: var(--ink);
       margin-bottom: 32px;
     }
 
-    .hero-lead strong {
-      color: var(--ink);
-      font-weight: 600;
+    .whiteboard-statement p {
+      margin-bottom: 8px;
     }
 
-    /* Hand-drawn Sketch Board */
-    .sketch-board {
-      background: var(--card-bg);
-      border: 2px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      padding: 28px 32px;
-      margin: 16px 0 28px;
-      position: relative;
-      box-shadow: 4px 4px 0 var(--line);
+    .whiteboard-statement p:last-child {
+      margin-bottom: 0;
     }
 
-    .board-annotations {
-      display: flex;
-      justify-content: space-between;
+    /* Interactive Diagram: Known -> Bridge -> Unknown */
+    .diagram-track {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      flex-wrap: wrap;
       gap: 16px;
+      padding-top: 12px;
     }
 
-    .hand-note {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--accent);
-      transform: rotate(-1.5deg);
+    @media (max-width: 600px) {
+      .diagram-track {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: center;
+      }
     }
 
-    .hand-formula {
-      font-size: 1.15rem;
+    .diagram-node {
+      background: var(--card-inner);
+      border: 1.5px solid var(--ink);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      padding: 18px 20px;
+    }
+
+    .diagram-node b {
+      display: block;
+      font-size: 1.05rem;
       font-weight: 800;
-      color: var(--ink);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      margin-bottom: 4px;
     }
 
-    .hand-formula span.arrow {
-      color: var(--accent);
-      font-size: 1.3rem;
+    .diagram-node p {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .diagram-arrow-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    .diagram-arrow-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      margin-bottom: 2px;
+    }
+
+    .diagram-arrow-svg {
+      width: 80px;
+      height: 20px;
     }
 
     /* Sections */
     section {
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
 
     .section-title {
@@ -177,9 +219,6 @@
       font-weight: 700;
       letter-spacing: -0.01em;
       margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
     }
 
     /* Stance Section: Oppose vs Deliver */
@@ -194,37 +233,24 @@
     }
 
     .stance-card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--ink);
-      border-radius: 12px;
       padding: 24px 26px;
-      box-shadow: 3px 3px 0 var(--line);
     }
 
-    .stance-badge {
-      display: inline-block;
-      font-size: 0.8rem;
+    .stance-label {
+      font-size: 0.85rem;
       font-weight: 800;
       letter-spacing: 0.05em;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-
-    .badge-oppose {
-      background: #FEE2E2;
-      color: #991B1B;
-    }
-
-    .badge-deliver {
-      background: #DCFCE7;
-      color: #166534;
+      display: inline-block;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 2px;
     }
 
     .stance-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 10px;
+      line-height: 1.45;
     }
 
     .stance-card p {
@@ -233,7 +259,7 @@
       line-height: 1.7;
     }
 
-    /* Focus Areas: Territory */
+    /* Focus Areas */
     .areas-list {
       display: flex;
       flex-direction: column;
@@ -241,32 +267,25 @@
     }
 
     .area-card {
-      background: var(--card-bg);
-      border: 1px solid var(--line);
-      border-radius: 10px;
       padding: 22px 26px;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      transition: transform 0.15s ease;
     }
 
     .area-card:hover {
-      border-color: var(--ink);
       transform: translateY(-1px);
     }
 
     .area-header {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .area-tag {
-      font-size: 0.8rem;
+    .area-num {
+      font-size: 0.85rem;
       font-weight: 800;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 2px 8px;
-      border-radius: 4px;
+      color: var(--ink-light);
     }
 
     .area-card h3 {
@@ -275,45 +294,43 @@
     }
 
     .area-card p {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--ink-muted);
       line-height: 1.7;
     }
 
-    /* Channels & Archive Bar */
+    /* Channels Bar */
     .channels-bar {
-      background: var(--card-bg);
-      border: 2px solid var(--ink);
-      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      padding: 24px 30px;
+      padding: 24px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      box-shadow: 4px 4px 0 var(--line);
-    }
-
-    .channels-info p {
-      font-size: 0.95rem;
-      color: var(--ink-muted);
     }
 
     .channels-info strong {
-      color: var(--ink);
+      display: block;
       font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .channels-info p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
     }
 
     .archive-button {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 18px;
+      padding: 9px 16px;
       background: var(--ink);
       color: #F2F0E9;
       font-weight: 700;
       font-size: 0.9rem;
-      border-radius: 6px;
+      border-radius: 4px;
       text-decoration: none;
       transition: background-color 0.15s ease;
     }
@@ -322,12 +339,9 @@
       background: #33362E;
     }
 
-    /* Commercial Bridge Strip */
+    /* Commercial Bridge */
     .cooperate-strip {
-      background: var(--card-inner);
-      border: 1.5px dashed var(--line-strong);
-      border-radius: 10px;
-      padding: 24px 28px;
+      padding: 22px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -352,14 +366,14 @@
     }
 
     .cooperate-strip a.cooperate-btn:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      opacity: 0.75;
     }
 
     /* Footer */
     footer.site-footer {
       margin-top: 80px;
-      padding-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
       font-size: 0.85rem;
       color: var(--ink-light);
       display: flex;
@@ -395,21 +409,33 @@
           把复杂的事情，<br>
           解释得简单些。
         </h1>
-        <p class="hero-lead">
-          通俗的解释，是勾勒出事情的本质；<br>
-          <strong>真正的理解，是用「已知」连接「未知」。</strong>
-        </p>
 
-        <!-- Hand-drawn sketch annotation card -->
-        <div class="sketch-board">
-          <div class="board-annotations">
-            <span class="hand-note">它为什么重要？</span>
-            <div class="hand-formula">
-              <span>复杂</span>
-              <span class="arrow">➔</span>
-              <span>明白</span>
+        <!-- Video-style Whiteboard Stage -->
+        <div class="whiteboard-stage sketch-border">
+          <div class="whiteboard-statement">
+            <p>通俗的解释，是勾勒出事情的<span class="marker">本质</span>；</p>
+            <p>真正的理解，是用<span class="marker">「已知」</span>连接<span class="marker">「未知」</span>。</p>
+          </div>
+
+          <!-- Video Style Diagram: Known -> Bridge -> Unknown -->
+          <div class="diagram-track">
+            <div class="diagram-node">
+              <b>「已知」</b>
+              <p>大众已有生活经验、真实处境与常识</p>
             </div>
-            <span class="hand-note">到底发生了什么？</span>
+
+            <div class="diagram-arrow-wrap">
+              <span class="diagram-arrow-text">因果连接</span>
+              <svg class="diagram-arrow-svg" viewBox="0 0 80 18" fill="none">
+                <path d="M4,9 C26,5 50,13 72,9" stroke="#1A1C18" stroke-width="2" stroke-linecap="round"/>
+                <path d="M64,3 L74,9 L64,15" stroke="#1A1C18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="diagram-node">
+              <b>「未知」</b>
+              <p>硬核系统、物理机制与产业底层真相</p>
+            </div>
           </div>
         </div>
       </section>
@@ -425,19 +451,19 @@
           <span>我们的立场</span>
         </div>
         <div class="stance-grid">
-          <div class="stance-card">
-            <span class="stance-badge badge-oppose">我们在反对什么</span>
+          <div class="stance-card sketch-border">
+            <span class="stance-label">我们在反对什么</span>
             <h3>拒绝用行业黑话制造高低差</h3>
             <p>
               反对把术语当作解释的终点，反对让人为了“不显外行”而假装听懂；反对把顺口的比喻当成本体，满足于好听却推不通因果。
             </p>
           </div>
 
-          <div class="stance-card">
-            <span class="stance-badge badge-deliver">我们在交付什么</span>
+          <div class="stance-card sketch-border">
+            <span class="stance-label">我们在交付什么</span>
             <h3>交出剥开外壳后的因果骨架</h3>
             <p>
-              让普通人面对任何高深概念时，不再因为不懂而放弃判断；敢说“这里我没懂，请讲清楚”，能顺着逻辑自己推演、追问和验证。
+              让普通人面对任何概念时，不再因为不懂而放弃判断；敢说“这里我没懂，请讲清楚”，能顺着逻辑自己推演、追问和验证。
             </p>
           </div>
         </div>
@@ -454,9 +480,9 @@
           <span>持续关心的领域 · 认知地图</span>
         </div>
         <div class="areas-list">
-          <div class="area-card">
+          <div class="area-card sketch-border">
             <div class="area-header">
-              <span class="area-tag">01</span>
+              <span class="area-num">01</span>
               <h3>硬科技与工程系统</h3>
             </div>
             <p>
@@ -464,9 +490,9 @@
             </p>
           </div>
 
-          <div class="area-card">
+          <div class="area-card sketch-border">
             <div class="area-header">
-              <span class="area-tag">02</span>
+              <span class="area-num">02</span>
               <h3>金融与商业规则</h3>
             </div>
             <p>
@@ -474,9 +500,9 @@
             </p>
           </div>
 
-          <div class="area-card">
+          <div class="area-card sketch-border">
             <div class="area-header">
-              <span class="area-tag">03</span>
+              <span class="area-num">03</span>
               <h3>现代复杂常识</h3>
             </div>
             <p>
@@ -493,7 +519,7 @@
 
       <!-- Section 3: Channels & Archive -->
       <section id="channels">
-        <div class="channels-bar">
+        <div class="channels-bar sketch-border">
           <div class="channels-info">
             <strong>全网搜索「通俗解释」</strong>
             <p>B站 · 抖音 · 微信视频号持续更新视频作品</p>
@@ -504,7 +530,7 @@
 
       <!-- Section 4: Quiet Commercial Bridge -->
       <section id="cooperate-bridge">
-        <div class="cooperate-strip">
+        <div class="cooperate-strip sketch-border">
           <p>
             如果你的团队拥有复杂而优秀的技术产品，希望被大众真正听懂：
           </p>
@@ -520,7 +546,7 @@
 
     <footer class="site-footer">
       <div>&copy; 2026 通俗解释 · 保持好奇，勾勒本质。</div>
-      <div>保留所有权利</div>
+      <div>全网搜索「通俗解释」：B站 · 抖音 · 视频号</div>
     </footer>
   </div>
 </body>
