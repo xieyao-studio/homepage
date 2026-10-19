@@ -43,36 +43,30 @@
       overflow: visible;
     }
 
-    /* Unified Hand-drawn Border Base */
+    /* Unified Hand-drawn Border Base (Completely Level, Zero Tilt) */
     .sketch-border {
       background: var(--card-bg);
       border: 1.5px solid var(--ink);
-      box-shadow: 3px 3px 0 var(--line);
+      box-shadow: 2px 3px 0 var(--line);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Distinct Curvature & Rotation Variants */
-    /* Variant 1: subtle left lean, asymmetric top-left / bottom-right */
+    /* Distinct Curvature Variants (No rotation, purely organic line curvature) */
     .variant-1 {
       border-radius: 255px 16px 225px 14px / 14px 230px 16px 250px;
-      transform: rotate(-0.35deg);
     }
 
-    /* Variant 2: subtle right lean, inverted curvature */
     .variant-2 {
       border-radius: 16px 245px 15px 235px / 235px 14px 245px 16px;
-      transform: rotate(0.35deg);
     }
 
-    /* Variant 3: softer organic wave, gentle negative tilt */
     .variant-3 {
       border-radius: 240px 22px 235px 18px / 18px 235px 15px 240px;
-      transform: rotate(-0.18deg);
     }
 
     .sketch-border:hover {
-      transform: rotate(0deg) translateY(-2px);
-      box-shadow: 4px 5px 0 var(--line);
+      transform: translateY(-2px);
+      box-shadow: 3px 5px 0 var(--line);
     }
 
     /* Marker Pen Highlight */
@@ -113,7 +107,6 @@
       color: #F2F0E9;
       font-size: 1.1rem;
       font-weight: 700;
-      transform: rotate(-1.5deg);
     }
 
     nav.site-nav {
@@ -158,7 +151,6 @@
       padding: 32px 36px;
       margin: 28px 0;
       border-radius: 285px 18px 270px 15px / 16px 270px 18px 285px;
-      transform: rotate(-0.25deg);
     }
 
     .whiteboard-statement {
@@ -203,12 +195,10 @@
 
     .diagram-node.node-known {
       border-radius: 250px 16px 230px 14px / 15px 235px 16px 245px;
-      transform: rotate(-0.5deg);
     }
 
     .diagram-node.node-unknown {
       border-radius: 16px 240px 14px 230px / 230px 15px 240px 18px;
-      transform: rotate(0.5deg);
     }
 
     .diagram-node b {
@@ -381,7 +371,6 @@
       flex-wrap: wrap;
       gap: 16px;
       border-radius: 18px 275px 15px 265px / 265px 16px 270px 18px;
-      transform: rotate(-0.25deg);
     }
 
     .cooperate-strip p {
