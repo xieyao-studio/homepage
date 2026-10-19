@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>案例 | 通俗解释</title>
-  <meta name="description" content="从硬科技到商业规则：让专业机制，变成人人可理解的大众常识。通俗解释公开代表作品精选。">
+  <meta name="description" content="通俗解释商业合作案例。">
   <style>
     :root {
       --bg: #F2F0E9;
@@ -14,7 +14,6 @@
       --ink-muted: #55594F;
       --ink-light: #7E8277;
       --line: rgba(26, 28, 24, 0.15);
-      --marker: rgba(230, 138, 0, 0.22);
       --max-w: 740px;
     }
 
@@ -71,13 +70,6 @@
       overflow: visible;
     }
 
-    .marker {
-      background: linear-gradient(104deg, rgba(230, 138, 0, 0) 0.5%, var(--marker) 2%, var(--marker) 95%, rgba(230, 138, 0, 0) 98%);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-weight: 600;
-    }
-
     /* Header & Nav */
     header.page-header {
       margin-bottom: 32px;
@@ -102,78 +94,63 @@
       border-bottom-color: var(--ink);
     }
 
-    .kicker {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--ink-light);
-      margin-bottom: 12px;
-      display: block;
-    }
-
     h1 {
       font-size: clamp(2rem, 4.5vw, 2.8rem);
       font-weight: 800;
       line-height: 1.3;
       letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-
-    .lead {
-      font-size: 1.15rem;
-      color: var(--ink-muted);
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
-    /* Section & Case Cards */
-    .section-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-    }
-
-    .cases-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .case-card {
-      padding: 24px 28px;
-    }
-
-    .case-eyebrow {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--ink-light);
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .case-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--ink);
-      text-decoration: none;
-      line-height: 1.45;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       margin-bottom: 8px;
     }
 
-    .case-title:hover {
-      text-decoration: underline;
+    /* Clients Grid */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+      padding-top: 12px;
     }
 
-    .case-desc {
-      font-size: 0.95rem;
+    @media (max-width: 620px) {
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .client-card {
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 112px;
+    }
+
+    .client-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+
+    .client-en {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .client-tag {
+      font-size: 0.78rem;
       color: var(--ink-muted);
-      line-height: 1.75;
-      margin: 0;
+      border-top: 1px dotted var(--line);
+      padding-top: 6px;
+      width: 100%;
     }
 
     /* Commercial Bridge */
@@ -224,68 +201,129 @@
         <a href="method.html">方法</a>
         <a href="cooperate.html">商务合作 ↗</a>
       </nav>
-      <span class="kicker">代表作品与案例</span>
-      <h1>让专业机制，变成人人可理解的常识。</h1>
-      <p class="lead">
-        我们从真实问题出发，穿透参数堆砌与营销表象。<br>
-        以下是在科技工程、金融商业与复杂规则领域的部分代表性作品。
-      </p>
+      <h1>合作案例</h1>
     </header>
 
     <main>
-      <!-- Section: Technology & Engineering -->
-      <div class="section-title">科技与工程系统</div>
-      <div class="cases-list">
-        <div class="case-card sketch-card">
+      <div class="clients-grid">
+        <!-- 1. 高通骁龙 -->
+        <div class="client-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 0.4,2 C 30,1.2 70,2.6 99.55,1.8 C 99.8,35 99.3,65 99.55,98 C 65,98.8 30,97.4 0.4,98 C 0.2,65 0.6,35 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
           </svg>
-          <span class="case-eyebrow">能源化工与产业闭环 · 50万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1kw3o6tEy4" target="_blank" rel="noopener" class="case-title">
-            马斯克的大学室友，想用空气造石油 ↗
-          </a>
-          <p class="case-desc">
-            从 1925 年费托合成原理出发，拆解从二氧化碳到航空煤油的真实能耗与商业买家。为什么这看似天方夜谭，却能依托中国西北风光电与煤化工产业链闭环？
-          </p>
+          <div class="client-name">高通骁龙</div>
+          <div class="client-en">Snapdragon</div>
+          <div class="client-tag">移动计算 · 旗舰芯片</div>
         </div>
 
-        <div class="case-card sketch-card">
+        <!-- 2. 宁德时代 -->
+        <div class="client-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 0.4,1.8 C 28,2.6 72,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
           </svg>
-          <span class="case-eyebrow">人工智能底层机制 · 50万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1smXUYSEGi" target="_blank" rel="noopener" class="case-title">
-            大模型 Token 究竟是啥？ ↗
-          </a>
-          <p class="case-desc">
-            穿透“AI 像人一样思考”的玄学描述，把分词器、词嵌入与统计预测还原为具象的文字积木。理解 Token，才能看懂大语言模型如何阅读、计费与产生幻觉。
-          </p>
+          <div class="client-name">宁德时代</div>
+          <div class="client-en">CATL</div>
+          <div class="client-tag">动力电池 · 新能源</div>
         </div>
 
-        <div class="case-card sketch-card">
+        <!-- 3. 支付宝 -->
+        <div class="client-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 0.4,2.2 C 30,1.2 70,3 99.55,2 C 99.8,32 99.3,68 99.55,98 C 68,98.6 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
           </svg>
-          <span class="case-eyebrow">算力基础设施 · 49万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1TUtjepEcd" target="_blank" rel="noopener" class="case-title">
-            数据中心散热居然那么烧钱？液冷原理科普 ↗
-          </a>
-          <p class="case-desc">
-            算力的尽头是电力，电力的终点是散热。从风冷散热的物理极限到冷板式、浸没式液冷，讲透 AI 算力集群背后沉重的物理与经济账本。
-          </p>
+          <div class="client-name">支付宝</div>
+          <div class="client-en">Alipay</div>
+          <div class="client-tag">数字支付 · 碰一下</div>
         </div>
 
-        <div class="case-card sketch-card">
+        <!-- 4. 百度智能云 -->
+        <div class="client-card sketch-card">
           <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 0.4,2 C 35,1.5 68,3 99.55,2 C 99.8,35 99.3,70 99.55,97.6 C 68,98.4 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
           </svg>
-          <span class="case-eyebrow">硬件物理与光学感知 · 62万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1rqWYzzEtf" target="_blank" rel="noopener" class="case-title">
-            我的手机高像素难道是「假」的？ ↗
-          </a>
-          <p class="case-desc">
-            剖析两亿像素手机背后的“像素九合一”传感器原理。在手机微小的感光元件面积限制下，高像素究竟是在解决清晰度，还是在做多帧算法合成的工程妥协？
-          </p>
+          <div class="client-name">百度智能云</div>
+          <div class="client-en">Baidu AI Cloud</div>
+          <div class="client-tag">云计算 · 大模型</div>
+        </div>
+
+        <!-- 5. 新华三 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,1.8 C 28,2.6 72,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">新华三</div>
+          <div class="client-en">H3C</div>
+          <div class="client-tag">算力中心 · 液冷基础设施</div>
+        </div>
+
+        <!-- 6. 京东 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,2 C 30,1.2 70,2.6 99.55,1.8 C 99.8,35 99.3,65 99.55,98 C 65,98.8 30,97.4 0.4,98 C 0.2,65 0.6,35 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">京东</div>
+          <div class="client-en">JD.COM</div>
+          <div class="client-tag">零售电商 · 创新架构</div>
+        </div>
+
+        <!-- 7. 智谱 AI -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,2.2 C 30,1.2 70,3 99.55,2 C 99.8,32 99.3,68 99.55,98 C 68,98.6 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">智谱 AI</div>
+          <div class="client-en">Zhipu AI</div>
+          <div class="client-tag">基座模型 · AutoGLM</div>
+        </div>
+
+        <!-- 8. 月之暗面 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,1.8 C 28,2.6 72,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">月之暗面</div>
+          <div class="client-en">Moonshot AI</div>
+          <div class="client-tag">通用智能 · Kimi</div>
+        </div>
+
+        <!-- 9. 声网 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,2 C 35,1.5 68,3 99.55,2 C 99.8,35 99.3,70 99.55,97.6 C 68,98.4 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">声网</div>
+          <div class="client-en">Agora</div>
+          <div class="client-tag">实时互动 · RTE + AI</div>
+        </div>
+
+        <!-- 10. 华住集团 · 汉庭 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,2 C 30,1.2 70,2.6 99.55,1.8 C 99.8,35 99.3,65 99.55,98 C 65,98.8 30,97.4 0.4,98 C 0.2,65 0.6,35 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">华住集团 · 汉庭</div>
+          <div class="client-en">Hanting Hotel</div>
+          <div class="client-tag">连锁酒店 · 场景体验</div>
+        </div>
+
+        <!-- 11. usmile 笑容加 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,2.2 C 30,1.2 70,3 99.55,2 C 99.8,32 99.3,68 99.55,98 C 68,98.6 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">usmile 笑容加</div>
+          <div class="client-en">usmile</div>
+          <div class="client-tag">智能个护 · 硬件技术</div>
+        </div>
+
+        <!-- 12. 网商银行 -->
+        <div class="client-card sketch-card">
+          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 0.4,1.8 C 28,2.6 72,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
+          </svg>
+          <div class="client-name">网商银行</div>
+          <div class="client-en">MYbank</div>
+          <div class="client-tag">数字普惠金融</div>
         </div>
       </div>
 
@@ -293,62 +331,6 @@
       <svg class="sketch-divider" viewBox="0 0 1000 12" preserveAspectRatio="none">
         <path d="M0,6 C180,10 320,2 500,7 C680,11 820,3 1000,6" stroke="#1A1C18" stroke-width="1.3" fill="none" opacity="0.2"/>
       </svg>
-
-      <!-- Section: Business, Finance & Rules -->
-      <div class="section-title">商业、金融与规则</div>
-      <div class="cases-list">
-        <div class="case-card sketch-card">
-          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 0.4,2 C 30,1.2 70,2.6 99.55,1.8 C 99.8,35 99.3,65 99.55,98 C 65,98.8 30,97.4 0.4,98 C 0.2,65 0.6,35 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
-          </svg>
-          <span class="case-eyebrow">汽车工程与技术测试 · 73万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1PkYQzHEQV" target="_blank" rel="noopener" class="case-title">
-            小米刷赛道圈速：是作秀还是真有用？ ↗
-          </a>
-          <p class="case-desc">
-            把纽北刷圈从一场舆论喧嚣，还原为严肃的汽车工程极限测试。高负荷制动、三电机散热与整车热管理，为什么赛道是汽车工业最严格的检验场？
-          </p>
-        </div>
-
-        <div class="case-card sketch-card">
-          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 0.4,1.8 C 28,2.6 72,1.4 99.55,2.2 C 99.8,32 99.3,68 99.55,97.8 C 68,97 32,98.4 0.4,97.6 C 0.2,68 0.6,32 0.4,1.8 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
-          </svg>
-          <span class="case-eyebrow">金融市场机制 · 57万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1CPdgYjEme" target="_blank" rel="noopener" class="case-title">
-            美国国债被抛售，为什么收益率反而飙升？ ↗
-          </a>
-          <p class="case-desc">
-            一个看似反常识的金融现象：价格跌了，为什么收益率会涨？用一张折价贴息借条的简单算术，讲透债券定价与利率传导的底层因果。
-          </p>
-        </div>
-
-        <div class="case-card sketch-card">
-          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 0.4,2.2 C 30,1.2 70,3 99.55,2 C 99.8,32 99.3,68 99.55,98 C 68,98.6 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2.2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
-          </svg>
-          <span class="case-eyebrow">商业博弈分析 · 55万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1VC4y1e7nt" target="_blank" rel="noopener" class="case-title">
-            通俗解释《繁花》股票大战 ↗
-          </a>
-          <p class="case-desc">
-            拆解剧情里的“扶老太太下楼梯”与“舢板建仓”。用大白话还原主力大户、机构席位与散户博弈背后的筹码流动与规则博弈。
-          </p>
-        </div>
-
-        <div class="case-card sketch-card">
-          <svg class="sketch-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M 0.4,2 C 35,1.5 68,3 99.55,2 C 99.8,35 99.3,70 99.55,97.6 C 68,98.4 30,97.2 0.4,97.8 C 0.2,68 0.6,30 0.4,2 Z" stroke="#1A1C18" stroke-width="1.5" vector-effect="non-scaling-stroke" fill="#FAF9F5"/>
-          </svg>
-          <span class="case-eyebrow">复杂规则本质 · 60万+ 播放</span>
-          <a href="https://www.bilibili.com/video/BV1LqjR6sE7B" target="_blank" rel="noopener" class="case-title">
-            当老婆问我：足球为什么有越位规则？ ↗
-          </a>
-          <p class="case-desc">
-            用自己写的一款直观动画小游戏，复盘没有越位时的“门前偷鸡Bug”，讲透越位规则如何作为一套“游戏平衡性补丁”维持了这项运动的魅力。
-          </p>
-        </div>
-      </div>
 
       <!-- Commercial Bridge -->
       <div class="bridge-strip sketch-card">
