@@ -3,35 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XY · 通俗解释 | 商业合作与作品集</title>
-  <meta name="description" content="科技、商业与硬核领域的通俗解释。把复杂的产业机制与底层逻辑，讲成人人可检验的朴素常识。">
+  <title>通俗解释 · XY</title>
+  <meta name="description" content="科技、商业与复杂系统的通俗解释。穿透专业黑话，交付人人可验证、可推演的朴素因果。">
   <style>
     :root {
-      --bg: #fafafa;
-      --surface: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --tag-bg: #f3f4f6;
-      --tag-text: #374151;
-      --radius: 12px;
-      --max-w: 800px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --border: #334155;
-        --accent: #38bdf8;
-        --accent-hover: #7dd3fc;
-        --tag-bg: #334155;
-        --tag-text: #e2e8f0;
-      }
+      --bg: #fcfbf9;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #8c8c8c;
+      --border: #eae6df;
+      --border-dark: #d5cfc4;
+      --accent: #111111;
+      --radius: 6px;
+      --max-width: 720px;
     }
 
     * {
@@ -41,386 +26,295 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 40px 20px 80px;
+      color: var(--text);
+      line-height: 1.75;
+      padding: 60px 24px 120px;
       -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: var(--max-w);
+      max-width: var(--max-width);
       margin: 0 auto;
     }
 
     /* Header */
     header {
-      margin-bottom: 48px;
+      margin-bottom: 56px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .badge {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: var(--tag-bg);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-    }
-
-    h1 {
-      font-size: 2.2rem;
+    .brand-title {
+      font-size: 1.85rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      color: var(--text);
     }
 
-    .bio {
-      font-size: 1.1rem;
+    .lead {
+      font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 24px;
+      line-height: 1.8;
+      margin-bottom: 28px;
     }
 
-    .header-links {
+    .lead strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    nav.quick-nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 18px;
+      gap: 20px;
       font-size: 0.95rem;
-      font-weight: 500;
-      border-radius: 8px;
+    }
+
+    nav.quick-nav a {
+      color: var(--accent);
       text-decoration: none;
-      transition: all 0.15s ease;
+      border-bottom: 1px solid var(--border-dark);
+      padding-bottom: 2px;
+      transition: border-color 0.15s ease;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-    }
-    @media (prefers-color-scheme: dark) {
-      .btn-primary { color: #0f172a; }
+    nav.quick-nav a:hover {
+      border-bottom-color: var(--text);
     }
 
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .btn-outline {
-      background: var(--surface);
-      color: var(--text-main);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--text-muted);
-    }
-
-    /* Section */
+    /* Section Styling */
     section {
-      margin-bottom: 48px;
+      margin-bottom: 64px;
     }
 
     h2 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      color: var(--text);
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: baseline;
     }
 
-    /* Cards */
-    .card-list {
+    h2 a.more {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--text-muted);
+    }
+
+    h2 a.more:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* Work / Article List */
+    .entry-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 24px;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+    .entry-item {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
+    .entry-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .card-header {
+    .entry-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 8px;
+      align-items: baseline;
+      margin-bottom: 6px;
       gap: 12px;
     }
 
-    .card-title {
+    .entry-title {
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--text-main);
+      color: var(--text);
       text-decoration: none;
     }
 
-    .card-title:hover {
-      color: var(--accent);
+    .entry-title:hover {
+      text-decoration: underline;
     }
 
-    .tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
+    .entry-meta {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      white-space: nowrap;
     }
 
-    .tag {
-      font-size: 0.75rem;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    .card-desc {
+    .entry-desc {
       font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* Partners / Brands */
-    .brands-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .brand-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    /* Contact & Policy Box */
-    .info-box {
-      background: var(--surface);
+    /* Editorial Principles */
+    .principles-box {
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      line-height: 1.7;
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+
+    .principles-box p {
+      margin-bottom: 14px;
+      color: var(--text-muted);
+    }
+
+    .principles-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .principles-box strong {
+      color: var(--text);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+    }
+
+    .contact-row {
+      display: flex;
+      margin-bottom: 12px;
       font-size: 0.95rem;
     }
 
-    .info-box ul {
-      margin-left: 20px;
-      margin-top: 8px;
-      color: var(--text-muted);
+    .contact-row:last-child {
+      margin-bottom: 0;
     }
 
-    .info-box li {
-      margin-bottom: 6px;
+    .contact-label {
+      width: 100px;
+      color: var(--text-light);
     }
 
-    .contact-channels {
-      margin-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .contact-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1rem;
-    }
-
-    .contact-line strong {
-      width: 90px;
-      color: var(--text-muted);
+    .contact-val {
+      color: var(--text);
       font-weight: 500;
     }
 
     /* Footer */
     footer {
-      margin-top: 64px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      margin-top: 80px;
+      padding-top: 32px;
       border-top: 1px solid var(--border);
-      padding-top: 24px;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      text-align: left;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="badge">Content Creator &amp; Studio</div>
-      <h1>XY · 通俗解释</h1>
-      <p class="bio">
-        聚焦科技、商业与硬核领域的深度通俗解释。<br>
-        把复杂的产业机制与底层逻辑，讲成人人可检验、可推演的朴素常识。
+      <div class="brand-title">通俗解释 · XY</div>
+      <p class="lead">
+        拆解硬科技、金融与商业中的复杂系统。<br>
+        <strong>把晦涩的技术参数与产业机制，翻译成人人可验证、可推演的朴素因果。</strong>
       </p>
-      <div class="header-links">
-        <a href="#contact" class="btn btn-primary">商业合作洽谈</a>
-        <a href="#works" class="btn btn-outline">代表案例</a>
-        <a href="articles.html" class="btn btn-outline">文章专栏</a>
-        <a href="https://space.bilibili.com" target="_blank" rel="noopener" class="btn btn-outline">Bilibili 主页 ↗</a>
-      </div>
+      <nav class="quick-nav">
+        <a href="#articles">精选文章</a>
+        <a href="articles.html">历史归档</a>
+        <a href="#principles">创作准则</a>
+        <a href="#contact">商务联络</a>
+      </nav>
     </header>
-
-    <section id="works">
-      <h2>精选案例与代表作</h2>
-      <div class="card-list">
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">华为云芯片 EDA 解决方案</span>
-            <div class="tags">
-              <span class="tag">硬科技</span>
-              <span class="tag">芯片制造</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            拆解万亿级晶体管如何在云端并行仿真。将复杂的芯片 EDA 上云与物理设计约束，翻译为直观的算力调度机制。
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">高通骁龙：端侧 AI 与异构计算</span>
-            <div class="tags">
-              <span class="tag">移动芯片</span>
-              <span class="tag">端侧AI</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            穿透手机厂商宣发的参数黑话，讲透 CPU、GPU 与 NPU 协同处理大语言模型的真实能效边界。
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">地平线 HSD：高阶智驾与端到端系统</span>
-            <div class="tags">
-              <span class="tag">智能驾驶</span>
-              <span class="tag">算法与芯片</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            从城区无图到端到端大模型，解析智能驾驶方案在传感器融合与实时计算上的工程取舍与真实表现。
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">自主选题：彼得·林奇商业投资与产业常识系列</span>
-            <div class="tags">
-              <span class="tag">商业与金融</span>
-              <span class="tag">通俗机制</span>
-            </div>
-          </div>
-          <p class="card-desc">
-            剥离金融衍生品与晦涩术语，用日常经验与资产负债逻辑，复盘真实商业周期与企业护城河。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>合作过的技术伙伴与品牌</h2>
-      <div class="brands-grid">
-        <div class="brand-item">华为云 (Huawei Cloud)</div>
-        <div class="brand-item">高通 (Qualcomm)</div>
-        <div class="brand-item">蚂蚁集团 (Ant Group)</div>
-        <div class="brand-item">地平线 (Horizon Robotics)</div>
-        <div class="brand-item">小鹏汽车 (XPeng)</div>
-        <div class="brand-item">宁德时代 (CATL)</div>
-        <div class="brand-item">亚朵 (Atour)</div>
-      </div>
-    </section>
 
     <section id="articles">
       <h2>
-        <span>最新文章与深度拆解</span>
-        <a href="articles.html" style="font-size: 0.9rem; font-weight: 500; color: var(--accent); text-decoration: none;">查看全部 (10篇) →</a>
+        <span>公开精选文章</span>
+        <a href="articles.html" class="more">查看全部 10 篇 →</a>
       </h2>
-      <div class="card-list">
-        <div class="card">
-          <div class="card-header">
-            <a href="posts/通俗解释-雪球爆仓.html" class="card-title">通俗解释：雪球爆仓</a>
-            <span class="tag">金融常识</span>
+      <div class="entry-list">
+        <div class="entry-item">
+          <div class="entry-header">
+            <a href="posts/通俗解释-雪球爆仓.html" class="entry-title">通俗解释：雪球爆仓</a>
+            <span class="entry-meta">金融机制</span>
           </div>
-          <p class="card-desc">
-            阿金有100块钱，投资了丧彪的捕鱼船。从敲入、敲出到极端单边行情的亏损机制，用朴素寓言讲透结构化衍生品。
+          <p class="entry-desc">
+            阿金投资了丧彪的捕鱼船。从敲入、敲出到极端单边行情的亏损路径，用朴素寓言拆透结构化金融衍生品的真实收益与隐性代价。
           </p>
         </div>
-        <div class="card">
-          <div class="card-header">
-            <a href="posts/通俗解释-股市「龙虎榜」怎么来的-有啥用-.html" class="card-title">通俗解释：股市「龙虎榜」怎么来的？有啥用？</a>
-            <span class="tag">商业与金融</span>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <a href="posts/通俗解释-股市「龙虎榜」怎么来的-有啥用-.html" class="entry-title">通俗解释：股市「龙虎榜」怎么来的？有啥用？</a>
+            <span class="entry-meta">商业与规则</span>
           </div>
-          <p class="card-desc">
-            拆解交易所每日盘后公布的交易席位数据，看清游资、机构与散户博弈的公开信号与信息边界。
+          <p class="entry-desc">
+            从交易所盘后交易席位披露规则出发，拆解游资、机构席位的公开信号机制，认清其作为博弈工具的信息边界。
           </p>
         </div>
-        <div class="card">
-          <div class="card-header">
-            <a href="posts/投影仪上的白点-和这颗被垄断的芯片有关.html" class="card-title">投影仪上的白点，和这颗被垄断的芯片有关</a>
-            <span class="tag">硬核科普</span>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <a href="posts/投影仪上的白点-和这颗被垄断的芯片有关.html" class="entry-title">投影仪上的白点，和这颗被垄断的芯片有关</a>
+            <span class="entry-meta">硬件科普</span>
           </div>
-          <p class="card-desc">
-            家用投影仪用了几年为什么会出现擦不掉的白点？剖析德州仪器（TI）DMD 微镜芯片的工作原理与行业垄断。
+          <p class="entry-desc">
+            为什么投影仪用久了会出现擦不掉的白点？剖析德州仪器（TI）DMD 微镜芯片的工作原理与微机电系统的物理磨损。
           </p>
         </div>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <a href="posts/延迟，会成为人类和AI实时通话的最大阻碍吗？.html" class="entry-title">延迟，会成为人类和 AI 实时通话的最大阻碍吗？</a>
+            <span class="entry-meta">网络与 AI</span>
+          </div>
+          <p class="entry-desc">
+            从人耳能感知的 200ms 停顿阈值，解析语音端到端大模型在网络传输、降噪与打断控制上的真实工程取舍。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <h2>创作与合作准则</h2>
+      <div class="principles-box">
+        <p><strong>以受众真实理解为中心：</strong>一切表达旨在为观众承担理解成本，不使用虚饰修辞，不用概念堆砌黑话，讲清真实因果。</p>
+        <p><strong>守住事实与信用底线：</strong>商务合作必须建立在真实产品能力之上。不配合排他夸张、虚假结论与无根据宣传。</p>
+        <p><strong>独立调研与闭环交付：</strong>从资料核验、机制穿透到脚本与白板视觉，提供完整的深度内容交付。</p>
       </div>
     </section>
 
     <section id="contact">
-      <h2>商业合作与联络</h2>
-      <div class="info-box">
-        <p><strong>我们的合作准则：</strong></p>
-        <ul>
-          <li><strong>讲真实因果</strong>：坚持事实核验，穿透宣传口号，让观众看懂产品解决什么具体问题。</li>
-          <li><strong>守观众信任</strong>：不配合排他夸张、虚假定论与无意义通稿。真正的好产品经得起推敲。</li>
-          <li><strong>完整闭环</strong>：前期调研对账、深度脚本、分镜与视觉呈现，提供完整交付支持。</li>
-        </ul>
-
-        <div class="contact-channels">
-          <div class="contact-line">
-            <strong>商务合作：</strong>
-            <span>商务负责人 Emma (微信/电话同号或发至工作邮箱)</span>
-          </div>
-          <div class="contact-line">
-            <strong>工作邮箱：</strong>
-            <span>contact@yourdomain.com <!-- 替换为你的真实工作邮箱 --></span>
-          </div>
-          <div class="contact-line">
-            <strong>团队坐标：</strong>
-            <span>北京</span>
-          </div>
+      <h2>商务与合作</h2>
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="contact-label">商务负责人</span>
+          <span class="contact-val">Emma</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">工作邮箱</span>
+          <span class="contact-val">xy@tongsujieshi.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">工作坐标</span>
+          <span class="contact-val">北京</span>
         </div>
       </div>
     </section>
 
     <footer>
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> XY · 通俗解释 · 保留所有权利</p>
+      <p>&copy; 2026 通俗解释 · XY. 保留所有权利。</p>
     </footer>
   </div>
 </body>
