@@ -3,7 +3,8 @@ import re
 import urllib.parse
 from datetime import datetime
 
-base_dir = os.path.expanduser('~/Desktop/homepage')
+SITE = 'https://tongsujieshi.com'
+base_dir = os.environ.get('SITE_DIR') or os.path.expanduser('~/Desktop/homepage')
 posts_dir = os.path.join(base_dir, 'archive/posts')
 out_posts_dir = os.path.join(base_dir, 'posts')
 os.makedirs(out_posts_dir, exist_ok=True)
@@ -14,6 +15,7 @@ article_template = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} | 通俗解释</title>
+  <link rel="canonical" href="{canonical}">
   <style>
     :root {{
       --bg: #F2F0E9;
@@ -147,6 +149,7 @@ articles_index_template = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文章归档 | 通俗解释</title>
+  <link rel="canonical" href="https://tongsujieshi.com/articles.html">
   <style>
     :root {{
       --bg: #F2F0E9;
@@ -257,8 +260,10 @@ for filename in os.listdir(posts_dir):
     slug = re.sub(r'[\\/*?:\":<>|\s]', '-', title)[:50].strip('-')
     out_html = os.path.join(out_posts_dir, f'{slug}.html')
     
+    canonical = SITE + '/posts/' + urllib.parse.quote(f'{slug}.html')
     page_html = article_template.format(
         title=title,
+        canonical=canonical,
         date=date_str[:10],
         content=clean_content
     )
@@ -285,3 +290,29 @@ with open(os.path.join(base_dir, 'articles.html'), 'w', encoding='utf-8') as f:
     f.write(articles_index_template.format(post_items_html=post_items_html))
 
 print(f"Generated {len(posts_data)} article pages and articles.html successfully.")
+
+# sitemap.xml + robots.txt：告诉 Google 该抓哪些网址（此前两者都返回 404）
+def sitemap_url(rel_path):
+    if rel_path == 'index.html':
+        return SITE + '/'
+    return SITE + '/' + urllib.parse.quote(rel_path)
+
+root_pages = ['index.html', 'articles.html', 'method.html', 'cases.html', 'cooperate.html']
+entries = [(p, os.path.join(base_dir, p)) for p in root_pages]
+entries += [(f'posts/{f}', os.path.join(out_posts_dir, f)) for f in sorted(os.listdir(out_posts_dir)) if f.endswith('.html')]
+
+urls = []
+for rel, abs_path in entries:
+    if not os.path.exists(abs_path):
+        continue
+    lastmod = datetime.fromtimestamp(os.path.getmtime(abs_path)).strftime('%Y-%m-%d')
+    urls.append(f"  <url>\n    <loc>{sitemap_url(rel)}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>")
+
+with open(os.path.join(base_dir, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + '\n'.join(urls) + '\n</urlset>\n')
+
+with open(os.path.join(base_dir, 'robots.txt'), 'w', encoding='utf-8') as f:
+    f.write(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
+
+print(f"Wrote sitemap.xml ({len(urls)} urls) and robots.txt.")
